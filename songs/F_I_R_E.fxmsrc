@@ -1,0 +1,64 @@
+-- F.I.R.E.
+-- Title music for my "F.I.R.E." scrolling shooter. Heavily inspired by the ancient "Crystal Hammer" Amiga music by Karsten Obarski.
+
+voice1:
+LOOP 6 LOOP 7 CALL mel_aadd CALL mel_aadd CALL mel_aadd 0,5 CALL mel_aaf1 CALL mel_aadd CALL mel_aadd 0,5 CALL mel_aadd CALL mel_aadd 0,5 CALL mel_aaf1 CALL mel_aadd 0,5 NEXT CALL mel_aadd CALL mel_aadd CALL mel_aadd 0,5 CALL mel_aaf1 CALL mel_aadd CALL mel_aadd CALL mel_aaf1 NOISE 25 TYPE 1 ENV env_adc4 LOOP 6 7,4 0,1 NEXT NEXT LOOP 4 CALL mel_aaf1 CALL mel_aaf1 0,60 CALL mel_aaf1 CALL mel_aaf1 0,40 LOOP 4 CALL mel_aadd NEXT NEXT JUMP voice1
+
+env_aac3:
+13,1 9,1 0,99 JUMP env_aac3
+
+env_aacc:
+15,1 50 14,1 63 62 60 58 56 54 52 0,255 JUMP env_aacc
+
+mel_aadd:
+ENV env_aac3 NOISE 6 TYPE 1 LEG+ 7,1 NOISE 0 7,1 TYPE 8 LEG- 0,3 RET
+
+mel_aaf1:
+ENV env_aacc NOISE 13 TYPE 1 77,10 TYPE 8 RET
+
+voice2:
+VIB vib_aba2 ENV env_ab97 LOOP 2 25,20 25,20 25,20 25,20 28,20 28,20 21,20 23,20 25,20 25,20 25,20 25,20 28,20 28,20 23,20 23,20 NEXT LOOP 2 21,20 21,20 21,20 21,20 23,20 23,20 23,20 23,20 25,20 25,20 25,20 25,20 25,20 25,20 25,20 25,20 NEXT LOOP 4 25,40 23,40 21,40 23,40 NEXT VIB vib_ab8c LOOP 4 25,80 21,40 23,40 NEXT VIB vib_aba2 LOOP 4 28,80 23,80 25,80 21,80 NEXT ENV env_ad74 VIB vib_ab8c LOOP 2 28,10 28,70 21,70 23,10 25,10 25,60 25,10 21,40 23,40 NEXT JUMP voice2
+
+vib_ab8c:
+-8 -7 7 8 8 7 -7 -8 JUMP vib_ab8c
+
+env_ab97:
+15,2 14,2 13,2 12,4 JUMP env_ab97
+
+vib_aba2:
+-6 -6 6 6 6 6 -6 -6 0 TONE 12 FREQ -3 -3 3 3 3 3 -3 -3 0 TONE -12 FREQ JUMP vib_aba2
+
+voice3:
+ENV env_adc4 VIB vib_add5 LOOP 2 0,5 56,5 54,5 56,5 54,10 52,10 49,10 52,10 54,10 56,10 0,5 56,5 57,5 59,5 56,5 54,5 52,5 45,5 52,10 54,10 56,10 54,10 0,5 56,5 54,5 56,5 54,10 52,10 49,10 52,10 54,10 56,10 57,10 56,10 54,10 52,10 54,10 51,3 54,3 51,4 49,10 47,10 NEXT VIB vib_adde LOOP 2 45,10 45,10 45,10 45,10 45,10 45,10 44,10 45,10 44,20 42,20 47,20 42,20 44,10 49,10 44,10 40,10 44,10 37,20 37,10 37,5 49,5 39,5 51,5 40,5 52,5 42,5 54,5 44,5 56,5 45,5 57,5 47,5 59,5 49,5 61,5 NEXT VIB vib_add5 LOOP 2 52,5 52,5 51,10 52,10 49,10 54,10 56,10 54,10 51,10 52,20 49,10 51,10 52,5 52,5 51,10 52,10 49,5 51,5 52,5 52,5 51,10 52,10 49,10 47,10 44,10 42,10 40,20 40,10 40,10 40,10 42,5 44,10 47,15 47,10 NEXT VIB vib_ad9c ENV env_ada3 LOOP 2 56,10 49,10 57,10 59,10 56,10 49,10 54,10 47,10 52,10 45,10 49,10 52,10 54,10 59,10 54,10 47,10 56,10 49,10 57,10 59,10 56,10 49,10 49,10 59,10 59,10 45,10 57,10 56,10 52,10 45,10 54,10 47,10 NEXT VIB vib_adb4 ENV env_ada9 LOOP 4 56,5 56,5 54,10 56,10 54,5 56,10 56,5 54,10 56,10 52,10 54,10 52,10 54,5 56,5 52,5 54,35 52,5 54,5 56,5 56,5 54,10 56,10 54,5 56,10 56,5 54,10 56,10 52,10 57,10 56,10 52,10 45,40 52,5 54,5 NEXT VIB vib_ad93 ENV env_ad74 LOOP 2 0,20 47,10 45,10 44,10 40,30 40,10 40,20 40,20 40,10 42,40 44,20 40,30 45,20 45,10 44,20 40,20 42,20 NEXT JUMP voice3
+
+env_ad74:
+0,1 15,5 14,9 13,9 12,9 11,9 10,9 9,3 8,3 7,3 6,3 5,3 4,3 0,255 JUMP env_ad74
+
+vib_ad93:
+TONE 12 -12 24 -12 FREQ JUMP vib_add5
+
+vib_ad9c:
+0 0 -4 4 JUMP vib_ad9c
+
+env_ada3:
+13,2 50 JUMP env_ada3
+
+env_ada9:
+15,2 14,2 13,2 12,255 JUMP env_ada9
+
+vib_adb4:
+TONE 12 -12 0 0 0 JUMP vib_adb4
+
+vib_adbd:
+-1 1 1 -1 JUMP vib_adbd
+
+env_adc4:
+15,1 14,1 13,1 12,1 11,1 10,1 9,255 JUMP env_adc4
+
+vib_add5:
+1 1 -1 -1 0 0 JUMP vib_add5
+
+vib_adde:
+TONE 12 0 -12 0 JUMP vib_adde
+-- End at #ade5
+

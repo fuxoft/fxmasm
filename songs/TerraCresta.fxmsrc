@@ -1,0 +1,79 @@
+-- Terra Cresta
+-- Based on Martin Galway's 48K Spectrum beeper title music and C64 ingame music.
+
+voice1:
+LOOP 99 CALL mel_d7c3 NEXT JUMP voice1
+
+mel_d7c3:
+VIB vib_d97b
+
+mel_d7c6:
+CALL mel_d80b TR+ 3 CALL mel_d804 TR+ -3 CALL mel_d804 TR+ 7 CALL mel_d804 TR+ -7 CALL mel_d804 TR+ 5 CALL mel_d7ef TR+ 1 CALL mel_d7ef TR+ 1 CALL mel_d804 TR+ -7 RET
+
+mel_d7ef:
+LOOP 2 ENV env_d972 24,10 24,10 CALL mel_d812 ENV env_d972 24,5 24,5 NEXT RET
+
+mel_d804:
+CALL mel_d7ef CALL mel_d7ef RET
+
+mel_d80b:
+CALL mel_d804 CALL mel_d804 RET
+
+mel_d812:
+ENV env_d986 LEG+ NOISE 29 TYPE 1 LOOP 10 7,1 NOISE+ -1 NEXT TYPE 8 LEG- RET
+
+voice2:
+TR 12 VIB vib_d9a7 CALL mel_d7c6 CALL mel_d7c6 TR 0 VIB vib_d9ca CALL mel_d841 CALL mel_d83e JUMP voice2
+
+mel_d83e:
+VIB vib_d9c1
+
+mel_d841:
+ENV env_d9b5 55,8 48,10 52,10 53,10 55,10 48,10 60,10 58,60 57,10 58,5 57,5 53,10 55,10 48,10 52,10 53,10 55,10 52,10 48,10 46,20 48,10 52,10 48,10 46,10 48,10 43,10 46,10 58,15 58,5 58,20 51,5 0,5 55,20 51,10 46,30 58,5 58,5 63,10 63,10 62,10 63,10 62,30 60,10 60,40 48,5 47,5 48,5 50,5 52,5 50,5 52,5 53,5 55,5 53,5 55,5 57,5 58,5 57,5 58,5 60,5 55,20 55,20 53,20 55,20 59,10 55,10 53,10 55,50 60,20 60,20 58,20 60,20 64,10 60,10 58,10 60,50 65,20 65,20 63,10 63,30 62,20 60,20 62,10 63,10 62,10 60,10 62,80 LOOP 16 62,5 NEXT 0,2 RET
+
+voice3:
+LOOP 30 0,40 NEXT ENV env_d9b5 VIB vib_d995 43,80 ENV env_d99b VIB vib_d9a7 CALL mel_d919 CALL mel_d919 CALL mel_d919 JUMP voice3
+
+mel_d919:
+LOOP 16 60,5 64,5 67,5 64,5 NEXT LOOP 8 63,5 67,5 70,5 67,5 NEXT LOOP 8 60,5 64,5 67,5 64,5 NEXT LOOP 8 67,5 71,5 74,5 71,5 NEXT LOOP 8 60,5 64,5 67,5 64,5 NEXT LOOP 4 65,5 69,5 72,5 69,5 NEXT LOOP 4 66,5 69,5 72,5 69,5 NEXT LOOP 8 67,5 71,5 74,5 71,5 NEXT RET
+
+env_d972:
+13,2 12,2 0,255 JUMP env_d972
+
+vib_d97b:
+5 5 -5 -5 -5 -5 5 5 JUMP vib_d97b
+
+env_d986:
+13,3 61 60 59 58 57 56 55 54 0,255 JUMP env_d986
+
+vib_d995:
+-120 -114
+
+vib_d997:
+3 JUMP vib_d997
+
+env_d99b:
+12,1 61 59 57 55 53 0,255 JUMP env_d99b
+
+vib_d9a7:
+TONE -12 FREQ
+
+vib_d9aa:
+-2 -1 1 2 2 1 -1 -2 JUMP vib_d9aa
+
+env_d9b5:
+0,2
+
+env_d9b7:
+65 64 63 62 61 10,255 JUMP env_d9b7
+
+vib_d9c1:
+TONE -12
+
+vib_d9c3:
+12 12 -36 12 JUMP vib_d9c3
+
+vib_d9ca:
+3 -3 0 -2 2 JUMP vib_d9ca
+-- End at #d9d1
+

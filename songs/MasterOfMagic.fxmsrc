@@ -1,0 +1,70 @@
+-- Master Of Magic
+-- This is my original composition that I added (illegally) to "Master of Magic" game
+
+voice1:
+ENV env_d424 VIB vib_d465 LOOP 6 70,128 65,128 60,128 NEXT ENV env_d40f VIB vib_d4b1 TR -12 CALL mel_d22a TR 7 CALL mel_d22a LOOP 6 TR 0 CALL mel_d214 TR -4 CALL mel_d214 NEXT TR 0 ENV env_d49a VIB vib_d400 LOOP 3 CALL mel_d1c9 NEXT TR -12 CALL mel_d1c9 ENV env_d40f CALL mel_d1c9 TR 0 JUMP voice1
+
+mel_d1c9:
+45,96 48,16 47,8 45,8 52,96 50,16 48,16 53,112 48,16 53,16 55,16 57,16 59,16 60,24 59,8 60,8 59,8 55,16 57,24 52,8 45,48 52,8 50,8 48,8 52,8 57,16 60,24 62,8 60,16 59,16 57,32 60,32 62,48 60,16 57,64 60,64 59,64 RET
+
+mel_d214:
+ENV env_d424 VIB vib_d3f1 LEG+ LOOP 32 57,1 64,1 69,1 76,1 NEXT LEG- 69,128 RET
+
+mel_d22a:
+45,112 47,16 48,64 50,24 52,24 53,16 53,64 57,24 59,24 60,16 60,24 59,8 57,32 57,24 55,24 53,16 52,96 57,16 59,16 60,48 60,16 59,24 55,24 52,16 50,24 52,8 48,32 53,24 55,24 57,16 52,128 RET
+
+voice2:
+ENV env_d40f VIB vib_d400 76,128 0,128 0,0 0,0 0,0 0,192 ENV env_d49a VIB vib_d48c 40,12 0,4 40,6 0,2 40,6 0,2 36,6 0,2 36,6 0,2 36,12 0,4 LOOP 2 ENV env_d46e VIB vib_d489 LOOP 3 60,8 57,8 52,8 57,8 52,8 48,8 52,8 48,8 NEXT 41,8 45,8 48,8 53,8 45,8 48,8 52,8 57,8 ENV env_d49a VIB vib_d490 LOOP 4 43,6 NEXT 43,168 ENV env_d4b5 VIB vib_d490 49,8 50,8 51,8 52,8 53,8 54,8 55,8 56,8 NEXT VIB vib_d3f1 ENV env_d49a CALL mel_d22a CALL mel_d22a LOOP 2 ENV env_d49a VIB vib_d465 50,0 56,128 ENV env_d46e VIB vib_d489 LOOP 2 60,8 60,8 57,8 62,8 60,16 57,16 NEXT TR 2 NEXT TR 0 VIB vib_d3f1 ENV env_d4b5 TR -12 CALL mel_d22a TR 0 CALL mel_d22a TR -12 CALL mel_d1c9 ENV env_d424 VIB vib_d465 TR 0 LOOP 2 70,128 67,128 64,128 65,128 NEXT ENV env_d49a VIB vib_d3f1 TR -12 CALL mel_d22a TR 0 CALL mel_d22a ENV env_d40f CALL mel_d22a JUMP voice2
+
+voice3:
+ENV env_d49a VIB vib_d3f1 71,0 LOOP 11 TR 9 CALL mel_d3ea TR 5 CALL mel_d3ea TR 9 CALL mel_d3ea TR 5 CALL mel_d3e3 TR 4 CALL mel_d3a0 TR 7 CALL mel_d3a0 NEXT ENV env_d49a VIB vib_d465 44,0 ENV env_d424 44,128 47,128 50,128 53,128 56,128 0,54 60,74 JUMP voice3
+
+mel_d3a0:
+ENV env_d40f VIB vib_d41e NOISE 31 TYPE 1 7,1 TYPE 8 12,7 12,8 TYPE 1 NOISE 0 7,1 TYPE 8 24,7 TYPE 1 7,1 TYPE 8 12,7 NOISE 8 TYPE 1 7,1 TYPE 8 24,7 12,8 TYPE 1 NOISE 0 7,1 TYPE 8 12,7 TYPE 1 7,1 TYPE 8 24,7 RET
+
+mel_d3e3:
+CALL mel_d3a0 CALL mel_d3a0 RET
+
+mel_d3ea:
+LOOP 4 CALL mel_d3a0 NEXT RET
+
+vib_d3f1:
+2 1 1 -1 -1 -2 -2 -1 -1 1 1 2 JUMP vib_d3f1
+
+vib_d400:
+-2 -1 -1 1 1 2 2 1 1 -1 -1 -2 JUMP vib_d400
+
+env_d40f:
+14,1 13,1 12,1 11,1 10,1 9,240 JUMP env_d40f
+
+vib_d41e:
+40 -40 0 JUMP vib_d41e
+
+env_d424:
+0,4 1,4 2,4 3,4 4,4 5,4 6,4 7,4 8,4 9,4 10,4 11,4 12,4 13,4 14,6 15,9 14,6 13,4 12,4 11,3 10,3 9,3 8,3 7,3 6,3 5,3 4,3 3,3 2,3 1,3 0,240 JUMP env_d424
+
+vib_d465:
+-5 -5 -5 -5 -5 23 JUMP vib_d465
+
+env_d46e:
+15,1 14,1 13,4 12,1 11,1 10,1 9,1 8,1 7,1 6,1 5,1 0,200 JUMP env_d46e
+
+vib_d489:
+0 0 0
+
+vib_d48c:
+15 JUMP vib_d48c
+
+vib_d490:
+-7 -7 -7 -7 -7 -7 33 JUMP vib_d490
+
+env_d49a:
+15,2 14,2 13,82 12,15 11,15 10,9 9,9 8,9 7,9 6,255 JUMP env_d49a
+
+vib_d4b1:
+0 JUMP vib_d4b1
+
+env_d4b5:
+15,1 14,1 13,1 12,1 11,1 10,1 9,1 8,1 15,1 13,1 11,1 9,1 15,1 13,1 11,1 9,1 JUMP env_d4b5
+-- End at #d4d7
+

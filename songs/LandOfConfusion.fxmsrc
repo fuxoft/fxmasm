@@ -1,0 +1,205 @@
+-- Land Of Confusion
+-- Originally by Genesis, adapted to ZX Spectrum because someone asked me to do it as a dare. I am not exactly a Genesis fan.
+
+voice1:
+ENV env_a441 VIB vib_9d68 41,12 41,6 41,12 41,6 41,12 CALL mel_9e4b LOOP 4 CALL mel_9d6c NEXT CALL mel_9e11 CALL mel_a2bc CALL mel_9e4b CALL mel_9d6c CALL mel_9d6c CALL mel_9e11 CALL mel_a2bc CALL mel_9e4b LOOP 2 TR 2 CALL mel_a326 TR -3 CALL mel_a326 TR 7 CALL mel_a326 TR 5 CALL mel_a326 NEXT TR 0 VIB vib_a36b ENV env_a364 16,192 16,192 LOOP 4 16,48 18,48 NEXT 18,12 20,100 0,80 CALL mel_9d6c CALL mel_9d6c CALL mel_9e11 CALL mel_a2bc CALL mel_a2bc CALL mel_9e4b VIB vib_a36b ENV env_a364 18,12 20,80 0,200 JUMP voice1
+
+vib_9d68:
+25 JUMP vib_9d68
+
+mel_9d6c:
+LOOP 3 CALL mel_a41a 0,6 CALL mel_a44a 0,6 CALL mel_a3fd 0,18 CALL mel_a41a 0,12 CALL mel_a41a CALL mel_a3fd 0,6 CALL mel_a44a 0,6 NEXT CALL mel_a41a 0,18 CALL mel_a3fd 0,18 CALL mel_a3fd CALL mel_a41a CALL mel_a41a CALL mel_a3fd CALL mel_a3fd CALL mel_a44a CALL mel_a3fd CALL mel_a3fd RET
+
+mel_9db3:
+LOOP 7 CALL mel_a3fd CALL mel_a41a CALL mel_a41a 0,6 CALL mel_a45f 0,6 CALL mel_a44a CALL mel_a44a CALL mel_a3fd 0,6 CALL mel_a44a CALL mel_a3fd CALL mel_a45f 0,6 CALL mel_a45f CALL mel_a44a NEXT CALL mel_a3fd CALL mel_a41a CALL mel_a41a 0,6 CALL mel_a45f 0,6 CALL mel_a44a CALL mel_a44a CALL mel_a3fd CALL mel_a3fd CALL mel_a45f CALL mel_a3fd CALL mel_a3fd CALL mel_a41a CALL mel_a3fd CALL mel_a3fd RET
+
+mel_9e11:
+ENV env_a041 VIB vib_9e44 47,96 VIB vib_9e73 49,96 VIB vib_9e3d 47,96 VIB vib_9e6c 49,96 VIB vib_9e44 47,96 VIB vib_9e73 49,96 VIB vib_9e3d 47,96 VIB vib_9e6c 42,96 RET
+
+vib_9e3d:
+TONE 3 6 -9 JUMP vib_9e3d
+
+vib_9e44:
+TONE 4 5 -9 JUMP vib_9e44
+
+mel_9e4b:
+ENV env_9e5f VIB vib_9e6c LOOP 16 49,12 NEXT VIB vib_9e73 LOOP 16 49,12 NEXT RET
+
+env_9e5f:
+14,3 12,3 62 61 60 59 58 57 JUMP env_9e5f
+
+vib_9e6c:
+TONE 4 3 -7 JUMP vib_9e6c
+
+vib_9e73:
+TONE 3 4 -7 JUMP vib_9e73
+-- Unexpected byte #00 at #9e7a
+-- Unexpected byte #63 at #9e7b
+-- Unexpected byte #80 at #9e7c
+-- Unexpected byte #7a at #9e7d
+-- Unexpected byte #9e at #9e7e
+
+voice2:
+CALL mel_a1d4 CALL mel_a1a0 LOOP 2 CALL mel_9fa6 NEXT CALL mel_a05c CALL mel_a0b3 44,12 CALL mel_a185 CALL mel_9fa6 CALL mel_a05c CALL mel_a0b3 44,12 CALL mel_a185 CALL mel_9f00 CALL mel_9f00 TR 12 LOOP 2 LOOP 2 40,18 42,18 47,12 46,18 44,18 42,12 40,18 42,18 47,12 46,24 42,24 NEXT NEXT VIB vib_9f9e TR 0 ENV env_9f8f 54,12 56,100 0,80 CALL mel_9fa6 CALL mel_a05c CALL mel_a0b3 44,24 0,12 CALL mel_a0c4 44,12 CALL mel_a185 VIB vib_a176 TR 0 42,12 44,80 0,200 JUMP voice2
+-- Unexpected byte #82 at #9ef9
+-- Unexpected byte #0c at #9efa
+-- Unexpected byte #e8 at #9efb
+-- Unexpected byte #0c at #9efc
+-- Unexpected byte #80 at #9efd
+-- Unexpected byte #f9 at #9efe
+-- Unexpected byte #9e at #9eff
+
+mel_9f00:
+VIB vib_9f9e ENV env_9f8f CALL mel_a476 60,12 60,12 58,12 58,12 56,12 56,12 0,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 0,12 0,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 56,12 0,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 0,12 56,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 56,12 0,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 56,12 56,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 56,12 0,12 CALL mel_a476 60,12 60,12 58,12 58,12 56,12 56,12 55,12 RET
+
+env_9f8f:
+15,2 14,2 12,2 11,2 10,2 9,255 JUMP env_9f8f
+
+vib_9f9e:
+TONE 0 -12 0 12 JUMP vib_9f9e
+
+mel_9fa6:
+VIB vib_a14a ENV env_a13f 42,12 44,20 0,4 VIB vib_a176 44,10 0,2 LOOP 3 44,6 0,6 NEXT 42,6 0,6 44,24 46,24 44,6 42,6 39,12 VIB vib_a14a 47,24 47,12 49,12 0,12 VIB vib_a176 49,12 LOOP 3 49,6 0,6 NEXT 47,6 0,6 49,6 0,6 49,12 51,24 VIB vib_a165 44,24 VIB vib_a14a 44,24 44,12 46,24 VIB vib_a151 49,24 VIB vib_a176 47,12 47,12 46,6 0,6 46,24 44,24 44,12 0,12 VIB vib_a14a 42,12 42,12 42,12 44,12 0,12 VIB vib_a176 39,12 42,12 44,12 0,24 42,6 0,6 44,12 42,12 44,24 0,12 VIB vib_a14a 42,24 RET
+
+env_a041:
+8,5 9,5 10,5 11,5 12,5 13,40 12,5 11,5 10,5 9,5 8,5 7,255 JUMP env_a041
+
+mel_a05c:
+VIB vib_a176 ENV env_a13f 42,12 42,12 42,12 44,60 47,12 47,12 47,12 49,12 49,24 47,12 49,12 50,12 49,12 44,12 47,24 44,60 0,12 44,12 49,24 49,24 47,18 46,6 44,12 44,60 0,24 49,18 47,6 49,12 49,12 47,12 49,12 50,12 49,12 44,12 47,24 44,60 0,24 LOOP 8 CALL mel_a44a NEXT RET
+
+mel_a0b3:
+CALL mel_a3fd CALL mel_a41a CALL mel_a3fd CALL mel_a3fd CALL mel_a3fd 0,6
+
+mel_a0c4:
+ENV env_a13f VIB vib_a12d 44,12 47,16 46,16 44,16 42,24 46,24 39,24 42,12 VIB vib_a138 47,12 46,24 44,12 VIB vib_a12d 44,12 47,16 46,16 44,16 42,24 46,24 46,24 39,12 VIB vib_a138 42,12 47,24 44,24 VIB vib_a12d 51,16 49,16 47,16 46,24 42,24 39,24 42,12 VIB vib_a138 51,12 49,24 47,12 VIB vib_a12d 44,12 47,16 46,16 44,16 42,24 46,24 39,24 42,24 RET
+
+vib_a12d:
+-4 -3 3 4 4 3 -3 -4 JUMP vib_a12d
+
+vib_a138:
+TONE 12
+
+vib_a13a:
+12 -12 JUMP vib_a13a
+
+env_a13f:
+0,1 15,3 14,4 13,255 JUMP env_a13f
+
+vib_a14a:
+TONE -12 24 -12 JUMP vib_a14a
+
+vib_a151:
+48 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 JUMP vib_a176
+
+vib_a165:
+-48 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+
+vib_a176:
+2 1 1 -1 -1 -2 -2 -1 -1 1 1 2 JUMP vib_a176
+
+mel_a185:
+VIB vib_a1cb ENV env_a1bc 37,12 44,12 37,12 49,4 49,8 37,12 44,12 37,12 LOOP 3 JUMP mel_a1a8
+
+mel_a1a0:
+VIB vib_a1cb ENV env_a1bc LOOP 4
+
+mel_a1a8:
+0,12 37,12 44,12 37,12 49,4 49,8 37,12 44,12 37,12 NEXT RET
+
+env_a1bc:
+15,3 14,2 13,2 62 61 60 59 0,99 JUMP env_a1bc
+
+vib_a1cb:
+-7 7 TONE -12 12 FREQ JUMP vib_a1cb
+
+mel_a1d4:
+VIB vib_9e6c CALL mel_a3fd 0,6 CALL mel_a3fd CALL mel_a3fd 0,6 CALL mel_a3fd CALL mel_a3fd 0,6 RET
+
+voice3:
+0,48 CALL mel_a38b LOOP 2 CALL mel_a2d2 NEXT CALL mel_9db3 CALL mel_a30e CALL mel_a38b CALL mel_a2d2 CALL mel_9db3 CALL mel_a30e CALL mel_a38b CALL mel_a285 CALL mel_a285 LOOP 3 CALL mel_a44a 0,30 CALL mel_a44a 0,6 CALL mel_a41a 0,18 CALL mel_a476 0,12 NEXT CALL mel_a44a 0,42 CALL mel_a44a 0,18 CALL mel_a476 CALL mel_a3fd CALL mel_a3fd LOOP 10 CALL mel_a45f 0,18 CALL mel_a476 0,12 NEXT LOOP 7 CALL mel_a41a NEXT 0,6 CALL mel_a3fd 0,6 CALL mel_a3fd 0,6 CALL mel_a3fd CALL mel_a3fd CALL mel_a476 CALL mel_a2d2 CALL mel_9db3 CALL mel_a30e CALL mel_a30e CALL mel_a38b ENV env_a364 TR 0 VIB vib_9f9e 30,12 32,80 0,200 JUMP voice3
+
+mel_a285:
+ENV env_a29f VIB vib_a2a4 29,96 29,96 36,96 36,96 34,96 34,96 VIB vib_a2b0 32,96 32,96 RET
+
+env_a29f:
+13,255 JUMP env_a29f
+
+vib_a2a4:
+TONE 3 0 4 0 5 0 -12 0 JUMP vib_a2a4
+
+vib_a2b0:
+TONE 4 0 3 0 5 0 -12 0 JUMP vib_a2b0
+
+mel_a2bc:
+LOOP 4 TR 5 CALL mel_a34a CALL mel_a34a TR 3 CALL mel_a34a TR 0 CALL mel_a34a NEXT RET
+
+mel_a2d2:
+TR -1 CALL mel_a2e9 TR 4 CALL mel_a2e9 TR -5 CALL mel_a2e9 TR -1 CALL mel_a2e9 TR 0 RET
+
+mel_a2e9:
+VIB vib_a36b ENV env_a384 21,6 0,12 21,18 0,12 21,12 0,6 21,24 0,6 21,12 0,6 21,24 0,6 21,6 0,12 21,30 RET
+
+mel_a30e:
+ENV env_a376 TR 0 LOOP 4 VIB vib_9e73 56,96 VIB vib_9e6c 54,48 VIB vib_9e73 51,48 NEXT RET
+
+mel_a326:
+LOOP 2 VIB vib_a36b ENV env_a364 15,24 CALL mel_a3fd ENV env_a364 0,6 10,8 0,4 15,24 CALL mel_a41a 0,6 CALL mel_a44a 0,6 NEXT RET
+
+mel_a34a:
+VIB vib_a36b ENV env_a364 15,24 NOISE 22 TYPE 1 57,5 0,1 TYPE 8 15,6 CALL mel_a41a 15,6 RET
+
+env_a364:
+15,2 14,99 JUMP env_a364
+
+vib_a36b:
+11 11 -11 -11 -11 -11 11 11 JUMP vib_a36b
+
+env_a376:
+14,3 13,2 12,2 61 60 59 58 57 JUMP env_a376
+
+env_a384:
+15,3 0,3 JUMP env_a384
+
+mel_a38b:
+TR 12 LOOP 3 CALL mel_a396 NEXT JUMP mel_a3c4
+
+mel_a396:
+ENV env_a3f6 VIB vib_a3f2 13,6 13,6 CALL mel_a41a 13,6 CALL mel_a3fd 13,6 13,6 CALL mel_a41a 13,6 13,6 CALL mel_a41a CALL mel_a41a CALL mel_a3fd 13,6 CALL mel_a41a 13,6 RET
+
+mel_a3c4:
+ENV env_a3f6 VIB vib_a3f2 13,6 13,6 13,6 13,6 CALL mel_a3fd 13,6 CALL mel_a41a 13,6 CALL mel_a3fd 13,6 CALL mel_a3fd CALL mel_a3fd 13,6 CALL mel_a3fd CALL mel_a3fd 13,6 RET
+
+vib_a3f2:
+10 JUMP vib_a3f2
+
+env_a3f6:
+15,4 0,2 JUMP env_a3f6
+
+mel_a3fd:
+ENV env_a412 LEG+ TYPE 1 LOOP 3 NOISE 31 7,1 NOISE 25 7,1 NEXT LEG- TYPE 8 RET
+
+env_a412:
+15,3 64 62 59 JUMP env_a412
+
+mel_a41a:
+ENV env_a430 LEG+ NOISE 9 TYPE 1 LOOP 6 7,1 NOISE+ 15 NEXT LEG- ENV env_a3f6 TYPE 8 RET
+
+env_a430:
+13,2 11,2 10,2 9,2 8,2 7,2 0,99 JUMP env_a430
+
+env_a441:
+14,2 13,2 62 61 JUMP env_a441
+
+mel_a44a:
+ENV env_a430 NOISE 15 TYPE 1 7,1 0,1 7,1 TYPE 8 ENV env_a3f6 0,3 RET
+
+mel_a45f:
+ENV env_a412 TR 0 TYPE 0 LEG+ LOOP 3 NOISE 30 77,1 NOISE 1 81,1 NEXT LEG- TYPE 8 RET
+
+mel_a476:
+ENV env_a48e LEG+ TYPE 1 LOOP 6 NOISE 20 7,1 NOISE 6 7,1 NEXT LEG- TYPE 8 ENV env_9f8f RET
+
+env_a48e:
+15,2 14,2 13,2 12,2 11,2 10,2 9,255 JUMP env_a48e
+-- End at #a49e
+

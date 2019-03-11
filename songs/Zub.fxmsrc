@@ -1,0 +1,91 @@
+-- Zub
+-- This was one of the first tests of my music engine. I added this music into the Zub game without knowing that there was actually offical 128K version of Zub with David Whittaker music.
+
+voice1:
+ENV env_ddbe VIB vib_ddcd 45,40 48,40 47,40 40,40 41,40 38,40 40,40 44,40 45,40 48,40 47,40 43,40 45,80 ENV env_ddf7 VIB vib_ddf3 52,10 52,20 47,10 47,10 47,10 42,20 ENV env_de20 VIB vib_ddcd LOOP 8 45,10 57,10 45,10 55,10 45,10 52,10 43,10 47,10 NEXT VIB vib_ddcd ENV env_de56 CALL mel_db28 CALL mel_db28 TR 5 CALL mel_db28 CALL mel_db28 TR -2 LOOP 2 CALL mel_db28 NEXT TR 0 45,10 46,10 48,10 45,20 46,10 48,20 46,10 48,10 49,10 46,20 48,10 49,20 48,10 49,10 51,10 48,20 49,10 51,20 53,80 VIB vib_de4e CALL mel_dae8 VIB vib_dddc ENV env_de3b LOOP 3 LOOP 2 LOOP 4 58,5 62,5 65,5 62,5 NEXT LOOP 4 58,5 63,5 67,5 63,5 NEXT LOOP 4 57,5 60,5 65,5 60,5 NEXT LOOP 4 53,5 58,5 62,5 58,5 NEXT NEXT LOOP 2 LOOP 4 55,5 58,5 62,5 58,5 NEXT LOOP 4 55,5 60,5 63,5 60,5 NEXT LOOP 4 53,5 57,5 60,5 57,5 NEXT LOOP 4 53,5 58,5 62,5 58,5 NEXT NEXT TR -24 NEXT ENV env_de56 VIB vib_de1a TR 0 80,100 70,220 JUMP voice1
+
+mel_dae8:
+LOOP 2 46,20 50,20 53,20 56,20 55,20 51,10 53,20 50,10 46,20 46,10 50,10 53,10 58,10 56,10 55,20 53,90 46,20 50,20 53,20 56,20 55,20 51,10 53,20 50,10 46,20 53,20 54,20 55,20 57,20 58,80 NEXT RET
+
+mel_db28:
+45,10 48,10 52,10 45,50 45,10 48,10 52,10 45,20 52,10 57,20 55,20 50,20 43,10 45,10 47,10 45,10 VIB vib_de65 45,80 VIB vib_ddcd RET
+
+voice2:
+ENV env_dde0 VIB vib_ddcd 0,20 45,40 48,40 47,40 40,40 41,40 38,40 40,40 44,40 45,40 48,40 47,40 43,40 45,60 VIB vib_ddf3 ENV env_ddf7 40,10 40,20 35,10 35,10 35,10 30,20 ENV env_ddf7 NOISE 23 VIB vib_dddc TR 9 LOOP 20 CALL mel_dcef NEXT TR 7 CALL mel_dcef CALL mel_dcef TR 9 LOOP 6 CALL mel_dcef NEXT TR 7 CALL mel_dcef CALL mel_dcef TR 9 CALL mel_dcef CALL mel_dcef LOOP 2 TR 2 CALL mel_dcef CALL mel_dcef CALL mel_dcef CALL mel_dcef TR 0 CALL mel_dcef CALL mel_dcef TR 2 CALL mel_dcef CALL mel_dcef NEXT LOOP 2 TR 7 CALL mel_dcef CALL mel_dcef CALL mel_dcef CALL mel_dcef TR 5 CALL mel_dcef CALL mel_dcef TR 7 CALL mel_dcef CALL mel_dcef NEXT TR 9 CALL mel_dcef CALL mel_dcef TR 10 CALL mel_dcef CALL mel_dcef TR 0 CALL mel_dcef CALL mel_dcef ENV env_de69 VIB vib_de65 53,80 VIB vib_ddcd ENV env_de56 CALL mel_dae8 ENV env_de76 VIB vib_ddcd 46,80 51,80 53,80 46,80 46,80 51,80 53,80 46,80 43,80 48,80 41,80 46,80 43,80 48,80 41,80 46,80 ENV env_de56 VIB vib_de4e LOOP 2 53,9 50,10 51,10 52,10 53,40 55,10 51,10 53,10 54,10 55,40 57,10 53,10 55,10 56,10 57,20 53,20 58,10 53,10 55,10 57,10 58,40 53,10 50,10 51,10 52,10 53,10 62,10 53,20 55,10 51,10 53,10 54,10 55,10 63,10 55,20 57,10 53,10 55,10 56,10 57,10 53,10 55,10 57,10 58,10 62,10 60,10 57,10 58,40 55,20 58,20 62,20 58,20 55,20 60,20 63,20 60,20 62,30 60,10 60,30 62,10 62,80 55,20 58,20 62,20 58,20 55,20 60,20 63,20 60,20 62,30 60,10 60,30 58,10 58,81 NEXT TR 0 VIB vib_ddcd 80,160 80,160 JUMP voice2
+
+mel_dcef:
+24,9 0,1 24,10 TYPE 1 40,10 TYPE 8 24,9 0,1 RET
+
+voice3:
+ENV env_ddbe NOISE 1 TYPE 1 LOOP 56 9,1 0,9 NEXT ENV env_de20 TYPE 21 NOISE 0 77,40 77,40 LOOP 8 LOOP 3 ENV env_de3b VIB vib_de1a TYPE 8 70,20 75,10 67,10 69,10 79,30 NEXT VIB vib_ddf3 ENV env_ddf7 0,10 40,20 40,10 38,10 38,10 38,20 NEXT ENV env_dde0 VIB vib_de65 LOOP 24 79,10 NEXT NOISE 15 TYPE 1 ENV env_de56 77,80 NOISE 0 ENV env_de20 LOOP 8 0,20 7,2 0,8 7,2 0,8 0,20 7,10 0,10 NEXT NOISE 9 TYPE 8 TR 10 ENV env_ddf7 LOOP 16 CALL mel_dcef NEXT TYPE 1 LOOP -64 NOISE 9 7,1 0,9 NOISE 0 7,1 0,4 7,1 0,4 NEXT ENV env_ddf7 LOOP 3 NOISE 5 7,20 NOISE 10 7,15 NOISE 5 7,5 7,10 7,10 NOISE 10 7,20 NEXT NOISE 20 7,10 7,20 7,20 7,10 7,20 TR 0 JUMP voice3
+
+env_ddbe:
+13,9 12,9 11,9 10,9 9,9
+
+env_ddc8:
+8,99 JUMP env_ddc8
+
+vib_ddcd:
+-2 -2 -1 1 2 2 2 2 1 -1 -2 -2 JUMP vib_ddcd
+
+vib_dddc:
+0 JUMP vib_dddc
+
+env_dde0:
+9,12 8,12 7,12 6,12 5,12 4,12 3,12
+
+env_ddee:
+3,124 JUMP env_ddee
+
+vib_ddf3:
+15 JUMP vib_ddf3
+
+env_ddf7:
+15,2 14,1 13,2 12,1 11,2 10,1 9,2 8,1 7,2 6,1 5,2 4,1 3,2 2,1 1,1
+
+env_de15:
+0,101 JUMP env_de15
+
+vib_de1a:
+-16 20 25 JUMP vib_de1a
+
+env_de20:
+15,2 0,1 15,2 0,1 15,1 0,1 13,1 0,1 11,1 0,1
+
+env_de34:
+9,1 0,1 JUMP env_de34
+
+env_de3b:
+15,1 13,1 11,1 9,1 7,1 5,1 3,1
+
+env_de49:
+0,133 JUMP env_de49
+
+vib_de4e:
+32 -8 -8 -8 -8 JUMP vib_ddcd
+
+env_de56:
+15,8 14,8 13,8 12,8 11,8
+
+env_de60:
+10,79 JUMP env_de60
+
+vib_de65:
+9 JUMP vib_de65
+
+env_de69:
+15,1 0,1 JUMP env_de69
+-- Remains of some unused vibrato:
+-- Unexpected byte #fd at #de70
+-- Unexpected byte #06 at #de71
+-- Unexpected byte #fd at #de72
+-- Unexpected byte #80 at #de73
+-- Unexpected byte #70 at #de74
+-- Unexpected byte #de at #de75
+
+env_de76:
+1,2 2,2 3,2 4,2 5,2 6,2 7,2 8,2 9,4 10,5 11,5 12,9 13,15 12,5 11,4 10,3 9,2 8,2 7,2 6,2 5,2 4,2 3,2 2,2 1,2
+
+env_dea8:
+0,223 JUMP env_dea8
+

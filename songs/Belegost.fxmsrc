@@ -1,0 +1,88 @@
+-- Belegost
+-- Originally composed for Miroslav Fídler's (Cybexlab) adventure game of the same name. The few seconds at the end are intentional homage to "Robin of the Wood" 48k game music but I can no longer remember why. Maybe because Mirek wanted "something like the Robin of the Wood music" from me.
+
+voice1:
+LOOP 4 CALL mel_8ba2 CALL mel_8ba2 TR -3 CALL mel_8ba2 CALL mel_8ba2 TR 0 NEXT CALL mel_8bf1 JUMP voice1
+
+mel_8ba2:
+ENV env_8bd7 VIB vib_8be6 60,24 55,12 60,12 58,6 57,6 58,12 57,24 53,12 57,12 55,6 53,6 55,12 52,24 48,12 52,6 53,6 55,12 52,12 48,12 46,6 48,6 50,12 48,36 RET
+
+env_8bd7:
+15,1 64 63 62 61 10,10 9,5 8,255 JUMP env_8bd7
+
+vib_8be6:
+0 -1 -1 1 1 0 0 0 JUMP vib_8be6
+
+mel_8bf1:
+VIB vib_8dba ENV env_8c51 TR 12 48,12 52,12 55,12 53,12 52,12 48,12 46,24 48,12 48,36 48,12 52,12 55,12 53,12 52,12 48,12 46,24 48,12 48,36 60,18 58,6 57,12 58,12 57,12 55,12 57,18 55,6 53,12 55,12 53,12 52,12 48,12 52,12 55,12 53,12 52,12 48,12 46,24 48,12 LOOP 12 49,2 TR+ 1 0,1 NEXT TR 0 RET
+
+env_8c51:
+14,1 63 62 61 60 9,255 JUMP env_8c51
+
+voice2:
+LOOP 4 LOOP 8 CALL mel_8c75 NEXT TR -3 LOOP 8 CALL mel_8c75 NEXT TR 0 NEXT CALL mel_8cb0 JUMP voice2
+
+mel_8c75:
+VIB vib_8ca5 ENV env_8c9c 24,12 31,12 36,12 ENV env_8ce7 VIB vib_8cf8 NOISE 18 TYPE 0 72,12 TYPE 8 ENV env_8c9c VIB vib_8ca5 24,6 31,6 36,12 RET
+
+env_8c9c:
+13,2 12,2 11,255 JUMP env_8c9c
+
+vib_8ca5:
+8 5 -5 -8 -8 -5 5 8 JUMP vib_8ca5
+
+mel_8cb0:
+ENV env_8cd8 VIB vib_8cd0 TR 12 LOOP 2 24,36 22,36 24,72 NEXT 24,36 19,36 17,36 24,72 22,36 24,72 TR 0 RET
+
+vib_8cd0:
+TONE 12 0 -12 0 JUMP vib_8cd0
+
+env_8cd8:
+14,1 63 62 61 60 59 58 57 56 5,3 JUMP env_8cd8
+
+env_8ce7:
+15,1 60 64 59 63 58 62 57 61 56 60
+
+env_8cf3:
+55 59 JUMP env_8cf3
+
+vib_8cf8:
+0 JUMP vib_8cf8
+
+voice3:
+LOOP 2 CALL mel_8dda CALL mel_8dda TR -3 CALL mel_8dda CALL mel_8dda TR 0 NEXT LOOP 2 CALL mel_8d1e CALL mel_8d7a NEXT CALL mel_8d4f JUMP voice3
+
+mel_8d1e:
+VIB vib_8dc0 ENV env_8dc9 67,36 72,36 74,12 72,12 74,12 76,24 72,12 79,34 0,2 79,36 78,72 67,36 72,36 74,12 72,12 74,12 76,24 84,12 79,36 82,36 84,72 RET
+
+mel_8d4f:
+ENV env_8c51 VIB vib_8dba LOOP 4 NOISE 2 TYPE 1 LOOP 3 47,1 0,11 47,1 0,5 47,1 0,5 47,1 0,11 NEXT NOISE 20 TYPE 0 84,30 0,6 NEXT TYPE 8 RET
+
+mel_8d7a:
+VIB vib_8dba ENV env_8dab TYPE 0 LOOP 4 NOISE 0 81,12 81,5 0,1 81,6 79,12 0,12 NOISE 0 81,12 81,12 79,24 79,12 0,12 NOISE 0 LOOP 4 76,5 0,1 NEXT NEXT TYPE 8 RET
+
+env_8dab:
+15,1 64 63 62 61 60 59 58 57 0,255 JUMP env_8dab
+
+vib_8dba:
+TONE -12 12 JUMP vib_8dba
+
+vib_8dc0:
+1 -1 -1 1 0 0 JUMP vib_8dc0
+
+env_8dc9:
+9,2 10,2 11,20 10,6 9,6 8,6 7,255 JUMP env_8dc9
+
+mel_8dda:
+VIB vib_8e0d ENV env_8e1e 60,12 65,6 67,6 72,12 67,12 65,12 67,12 70,12 69,12 65,12 67,24 67,12 60,12 65,6 67,6 72,12 67,24 64,12 65,12 64,12 58,12 60,36 RET
+
+vib_8e0d:
+0 0 0 0 0 0
+
+vib_8e13:
+-1 -1 1 1 1 1 -1 -1 JUMP vib_8e13
+
+env_8e1e:
+14,1 63 62 61 10,255 JUMP env_8e1e
+-- End at #8e27
+

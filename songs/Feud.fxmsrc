@@ -1,0 +1,76 @@
+-- Feud
+-- My original music I hacked into the game "Feud".
+
+mel_e89a:
+0,200 JUMP mel_e89a
+
+voice1:
+ENV env_eb63 VIB vib_eb76 LOOP 6 TR -3 CALL mel_e8d2 TR -5 CALL mel_e8d2 TR -7 CALL mel_e8d2 TR -8 CALL mel_e8d2 NEXT VIB vib_eb76 ENV env_ebb3 TR 0 LOOP 6 21,160 19,160 17,160 16,160 NEXT JUMP voice1
+
+mel_e8d2:
+24,10 24,10 24,20 NOISE 14 TYPE 1 ENV env_eb44 77,20 ENV env_eb63 TYPE 8 24,10 24,10 31,20 24,20 TYPE 1 ENV env_eb44 77,20 ENV env_eb63 TYPE 8 22,10 23,10 RET
+
+voice2:
+ENV env_eb81 VIB vib_eb8c CALL mel_e948 CALL mel_e948 CALL mel_e948 ENV env_eb81 VIB vib_eb8c LOOP 2 CALL mel_e9de 47,40 NEXT ENV env_ebb3 LOOP 2 33,40 45,40 40,40 36,40 31,40 43,40 38,40 35,40 29,40 41,40 36,40 33,40 28,40 40,40 35,40 32,40 ENV env_eb63 NEXT JUMP voice2
+
+mel_e948:
+52,20 48,10 45,10 52,10 48,10 45,10 52,30 53,20 52,20 48,20 50,20 47,10 43,10 50,10 47,10 43,10 50,90 48,20 45,10 41,10 48,10 45,10 41,10 48,30 50,20 48,20 45,20 LOOP 2 47,10 44,10 40,10 47,20 44,10 40,20 NEXT 52,20 48,10 45,10 52,10 53,10 52,10 48,10 45,10 48,10 52,10 53,20 52,10 48,10 45,10 50,30 48,10 47,10 45,10 47,10 48,10 50,30 43,50 48,30 45,10 41,20 48,10 47,10 45,10 47,20 48,10 45,50 44,20 40,10 47,20 40,10 50,30 40,10 50,20 48,20 47,10 RET
+
+mel_e9de:
+45,10 48,10 52,10 57,50 VIB vib_ebe2 57,40 VIB vib_eb8c 59,20 60,20 59,20 55,10 VIB vib_eb72 50,20 VIB vib_eb8c 48,10 47,80 50,20 LOOP 4 48,5 50,5 48,5 47,5 NEXT 48,20 50,20 52,30 48,10 VIB vib_ebe2 47,120 VIB vib_eb72 47,40 VIB vib_eb8c 45,10 48,10 52,10 57,50 45,5 48,5 52,5 57,14 0,1 57,10 59,20 VIB vib_ebe2 60,20 VIB vib_eb8c 59,20 55,10 50,130 48,10 45,10 41,10 48,10 45,10 41,10 48,10 45,10 53,20 52,20 50,30 48,10 LOOP 20 47,3 48,3 NEXT RET
+
+voice3:
+TR 0 ENV env_ec29 VIB vib_eba8 CALL mel_e948 VIB vib_eb3b ENV env_eb97 LOOP 2 LOOP 5 57,10 60,10 64,10 NEXT 57,10 LOOP 5 55,10 59,10 62,10 NEXT 55,10 LOOP 5 65,10 69,10 72,10 NEXT 65,10 LOOP 5 64,10 68,10 71,10 NEXT 64,10 NEXT ENV env_eb44 LOOP 2 CALL mel_eade NEXT NOISE 30 TYPE 1 ENV env_ebfa LOOP 8 77,160 NEXT TYPE 8 ENV env_ec29 0,40 TR 0 VIB vib_eb8c CALL mel_e9de ENV env_eb44 VIB vib_eb3b CALL mel_eade ENV env_ec29 CALL mel_eade JUMP voice3
+
+mel_eade:
+TR -3 CALL mel_eb17 TR -5 CALL mel_eaf3 TR 5 CALL mel_eaf3 TR 4 CALL mel_eaf3 RET
+
+mel_eaf3:
+48,5 52,5 55,5 60,5 52,5 55,5 60,5 64,5 55,5 60,5 64,5 67,5 LOOP 5 60,5 64,5 67,5 72,5 NEXT RET
+
+mel_eb17:
+48,5 51,5 55,5 60,5 51,5 55,5 60,5 63,5 55,5 60,5 63,5 67,5 LOOP 5 60,5 63,5 67,5 72,5 NEXT RET
+
+vib_eb3b:
+0 0 0 0 0 0 JUMP vib_eb3b
+
+env_eb44:
+14,1 0,1 13,2 0,1 12,2 0,1 11,2 0,1 10,2 0,1 9,2 0,1 8,2 0,1 JUMP env_eb44
+
+env_eb63:
+0,1 14,5 13,5 12,5 11,5 10,222 JUMP env_eb63
+
+vib_eb72:
+2 JUMP vib_eb72
+
+vib_eb76:
+-10 -5 5 10 10 5 -5 -10 JUMP vib_eb76
+
+env_eb81:
+15,4 14,4 13,4 12,240 JUMP env_eb81
+
+vib_eb8c:
+-2 -1 1 2 2 1 -1 -2 JUMP vib_eb8c
+
+env_eb97:
+15,1 13,1 11,1 9,1 7,1 5,1 3,4 JUMP env_eb97
+
+vib_eba8:
+2 1 -1 -2 -2 -1 1 2 JUMP vib_eba8
+
+env_ebb3:
+13,3 0,2 13,3 0,2 13,3 0,2 13,3 0,2 13,8 0,2 13,3 0,2 13,8 0,2 13,3 0,2 13,8 0,2 13,8 0,2 13,8 0,2 JUMP env_ebb3
+
+vib_ebe2:
+20 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 JUMP vib_eb8c
+
+env_ebfa:
+3,13 4,13 5,13 6,13 7,13 8,13 9,13 10,13 11,13 12,13 13,8 12,5 11,5 10,5 9,5 8,5 7,5 6,5 5,5 4,5 3,199
+
+env_ec24:
+13,170 JUMP env_ec24
+
+env_ec29:
+12,250 JUMP env_ec29
+-- End at #ec2d
+

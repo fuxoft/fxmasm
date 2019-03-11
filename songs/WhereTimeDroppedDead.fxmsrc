@@ -1,0 +1,115 @@
+-- Where Time Dropped Dead
+-- This was my original song first used in my "crack intro" before the game "Where Time Stood Still" (hence the name).
+
+voice1:
+VIB vib_a705 ENV env_a6fa LOOP 4 CALL mel_a6a0 NEXT TR -12 CALL mel_a839 VIB vib_a6e5 CALL mel_a83c VIB vib_a705 ENV env_a6fa LOOP 2 CALL mel_a6a0 CALL mel_a6a0 TR 0 NEXT ENV env_aa39 VIB vib_aa2a 55,64 54,64 52,120 0,8 LOOP 3 CALL mel_a87a CALL mel_a7f9 CALL mel_a7f9 ENV env_aa39 NEXT 55,64 54,64 52,120 0,8 JUMP voice1
+
+mel_a6a0:
+47,8 55,4 55,4 54,8 55,16 55,8 54,8 55,8 47,8 55,4 55,4 54,8 55,8 57,8 55,8 54,8 52,8 48,8 55,4 55,4 54,8 55,16 55,8 54,8 52,8 50,8 57,4 57,4 55,8 57,8 59,8 57,8 55,8 54,8 RET
+
+vib_a6e5:
+1 -1 -1 1 1 -1
+
+vib_a6eb:
+4 4 4 -4 -4 -4 -4 -4 -4 4 4 4 JUMP vib_a6eb
+
+env_a6fa:
+14,1 63 62 61 60 9,255 JUMP env_a6fa
+
+vib_a705:
+3 1 -1 -3 -1 -3 4 JUMP vib_a705
+
+voice2:
+LOOP 4 CALL mel_a7aa TR -4 CALL mel_a7ad TR -2 CALL mel_a7ad TR 0 NEXT LOOP 4 CALL mel_a7aa TR -7 CALL mel_a7aa TR -5 CALL mel_a7aa TR 0 CALL mel_a7aa NEXT LOOP 4 CALL mel_a7aa TR -4 CALL mel_a7ad TR -2 CALL mel_a7ad TR 0 NEXT CALL mel_a7ad TR -5 CALL mel_a7ad TR 0 LOOP 9 CALL mel_a933 NEXT LOOP 2 CALL mel_a7c7 TR -4 CALL mel_a7c7 TR 0 CALL mel_a7c7 TR -4 CALL mel_a7ca TR -5 CALL mel_a7ca TR 0 CALL mel_a7ca TR -5 CALL mel_a7ca TR -4 CALL mel_a7ca TR 0 CALL mel_a7ca CALL mel_a7ca TR -5 CALL mel_a7ca TR 0 CALL mel_a7ca TR -5 CALL mel_a7ca TR 0 NEXT CALL mel_a7ad TR -5 CALL mel_a7ad TR 0 CALL mel_a7aa JUMP voice2
+
+mel_a7aa:
+CALL mel_a7ad
+
+mel_a7ad:
+VIB vib_a817 ENV env_a81f 28,16 ENV env_a6fa 28,8 28,8 CALL mel_a7f9 ENV env_a6fa 35,8 40,8 RET
+
+mel_a7c7:
+CALL mel_a7ca
+
+mel_a7ca:
+VIB vib_a7f2 ENV env_a7e5 40,6 0,2 52,4 52,4 52,8 52,8 40,6 0,2 52,16 52,8 RET
+
+env_a7e5:
+15,1 14,2 13,2 62 61 10,255 JUMP env_a7e5
+
+vib_a7f2:
+TONE -5 -7 12 JUMP vib_a7f2
+
+mel_a7f9:
+ENV env_a826 NOISE 20 LEG+ TYPE 1 55,2 NOISE 23 55,2 NOISE 26 55,2 NOISE 29 55,2 NOISE 31 55,8 LEG- TYPE 8 RET
+
+vib_a817:
+9 6 -6 -9 0 JUMP vib_a817
+
+env_a81f:
+14,2 13,255 JUMP env_a81f
+
+env_a826:
+15,2 14,2 13,2 59 62 58 61 58 60 58 59 0,255 JUMP env_a826
+
+mel_a839:
+VIB vib_a8d1
+
+mel_a83c:
+ENV env_a8e1 59,48 64,16 67,24 66,24 64,16 62,64 60,48 60,16 59,48 63,16 69,24 67,24 66,16 67,128 59,48 64,16 67,24 66,24 64,16 62,64 60,48 60,16 59,48 63,16 69,24 67,24 66,16 64,112 JUMP mel_a7f9
+
+mel_a87a:
+55,24 54,24 55,16 54,24 52,40 55,24 54,24 55,16 57,16 55,8 54,24 55,16 55,24 54,24 55,16 54,16 52,8 54,24 55,16 54,16 52,8 59,24 57,16 59,64 59,24 52,24 60,16 59,24 54,24 55,16 57,24 54,24 57,16 55,24 52,24 54,16 55,24 52,24 55,16 54,24 51,24 54,16 52,96 RET
+
+vib_a8d1:
+TONE 12 0 -12 0 JUMP vib_a8d1
+-- Remains of the original unused vibrato below:
+-- Unexpected byte #02 at #a8d9
+-- Unexpected byte #01 at #a8da
+-- Unexpected byte #fe at #a8db
+-- Unexpected byte #ff at #a8dc
+-- Unexpected byte #fe at #a8dd
+-- Unexpected byte #80 at #a8de
+-- Unexpected byte #d1 at #a8df
+-- Unexpected byte #a8 at #a8e0
+
+env_a8e1:
+15,1 64 63 62 11,255 JUMP env_a8e1
+
+voice3:
+0,0 0,0 LOOP 12 CALL mel_a933 NEXT ENV env_aa0f VIB vib_aa08 CALL mel_a952 CALL mel_a952 ENV env_a9f4 LOOP 2 CALL mel_a9d3 CALL mel_a9d3 ENV env_aa1e NEXT ENV env_aa41 VIB vib_aa2a 52,64 51,64 47,120 0,8 LOOP 3 0,8 CALL mel_a87a 0,24 NEXT 52,64 51,64 47,120 0,8 JUMP voice3
+
+mel_a933:
+VIB vib_aa01 ENV env_a9f4 59,16 66,8 66,8 66,16 59,8 64,56 LEG+ 64,8 63,2 62,2 61,2 60,2 LEG- RET
+
+mel_a952:
+59,8 67,8 66,8 67,8 0,8 67,8 66,8 67,8 59,8 67,8 66,8 67,8 69,8 67,8 66,8 64,8 60,8 67,8 66,8 67,8 0,8 67,8 66,8 67,8 60,8 67,8 66,8 67,8 69,8 67,8 69,8 71,8 59,8 66,8 64,8 66,8 0,8 66,8 64,8 66,8 59,8 66,8 64,8 66,8 67,8 69,8 67,8 64,8 59,8 67,8 66,8 67,8 0,8 67,8 66,8 67,8 69,8 67,8 66,8 64,8 67,8 66,8 64,8 63,8 RET
+
+mel_a9d3:
+64,16 71,16 69,16 71,16 67,16 71,16 66,16 71,16 60,16 67,16 66,16 64,16 62,16 66,16 67,16 69,16 RET
+
+env_a9f4:
+12,4 11,7 10,7 9,7 8,255 JUMP env_a9f4
+
+vib_aa01:
+TONE 12 -12 0 JUMP vib_aa01
+
+vib_aa08:
+1 -1 -1 1 JUMP vib_aa08
+
+env_aa0f:
+13,1 62 61 60 59 58 57 56 55 0,255 JUMP env_aa0f
+
+env_aa1e:
+13,1 62 61 60 59 58 57 56 JUMP env_aa1e
+
+vib_aa2a:
+2 1 1 -1 -1 -2 -2 -1 -1 1 1 2 JUMP vib_aa2a
+
+env_aa39:
+15,1 14,2 13,2 12,3
+
+env_aa41:
+12,4 11,4 10,255 JUMP env_aa41
+-- End at #aa49
+

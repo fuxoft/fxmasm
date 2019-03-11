@@ -1,0 +1,82 @@
+-- Magnetic Fields IV
+-- A bit of Jean-Michel Jarre. Also I liked it in Yie-Ar Kung-Fu game on C64, so I remade it.
+
+voice1:
+ENV env_d743 VIB vib_d758 48,128 VIB vib_d734 48,0 LOOP 6 0,0 NEXT ENV env_d76a 0,64 LEG+ LOOP 48 36,1 40,1 43,1 48,1 NEXT LEG- ENV env_d743 VIB vib_d787 CALL mel_d5ba VIB vib_d792 CALL mel_d5ba VIB vib_d760 TR 12 CALL mel_d5ba VIB vib_d79a CALL mel_d57d VIB vib_d792 CALL mel_d57d ENV env_d743 VIB vib_d787 CALL mel_d5ba CALL mel_d5ba TR 0 72,0 JUMP voice1
+
+mel_d53a:
+0,16 52,16 52,8 52,16 52,24 50,16 47,8 48,24 45,64 43,64 0,16 52,16 52,8 52,16 52,24 50,16 47,8 48,24 47,64 45,64 0,16 48,16 48,8 48,16 48,16 48,16 48,8 47,16 48,16 47,64 45,96 43,8 41,24 RET
+
+mel_d57d:
+ENV env_d7a3 TR 12 LOOP 2 CALL mel_d5a3 NEXT TR 9 LOOP 2 CALL mel_d5a3 NEXT TR 7 CALL mel_d5a3 TR 5 CALL mel_d5a3 TR 0 LOOP 2 CALL mel_d5a3 NEXT RET
+
+mel_d5a3:
+36,16 36,8 36,8 48,8 48,16 36,16 36,16 36,8 48,8 48,8 48,16 RET
+
+mel_d5ba:
+CALL mel_d53a 40,192 CALL mel_d53a 40,96 41,8 42,24 43,96 45,8 47,24 48,96 47,8 48,24 50,128 VIB vib_d75c 50,8 49,8 48,8 47,40 VIB vib_d787 RET
+
+voice2:
+ENV env_d743 VIB vib_d758 36,128 VIB vib_d734 ENV env_d71d LOOP 2 36,0 33,0 31,128 29,128 24,0 NEXT JUMP mel_d622
+
+mel_d603:
+36,0 36,128 33,128 31,128 29,192 24,192 36,0 36,128 33,128 31,128 29,192 24,128 28,128 29,128 31,192 RET
+
+mel_d622:
+LOOP 3 CALL mel_d603 NEXT LOOP 2 36,0 33,0 31,128 29,128 24,0 NEXT CALL mel_d603 ENV env_d743 VIB vib_d787 TR -12 CALL mel_d5ba TR 0 60,0 JUMP voice2
+
+voice3:
+ENV env_d743 VIB vib_d758 24,128 CALL mel_d6c3 CALL mel_d6c3 CALL mel_d695 CALL mel_d695 CALL mel_d695 CALL mel_d6c3 CALL mel_d6c3 CALL mel_d695 CALL mel_d695 36,0 JUMP voice3
+
+mel_d672:
+TR 12 LOOP 6 CALL mel_d6f2 NEXT TR 9 CALL mel_d6f2 CALL mel_d6f2 TR 7 CALL mel_d6f2 CALL mel_d6f2 TR 5 LOOP 3 CALL mel_d6f2 NEXT TR 0 RET
+
+mel_d695:
+CALL mel_d672 LOOP 3 CALL mel_d6f2 NEXT CALL mel_d672 CALL mel_d6f2 CALL mel_d6f2 TR 4 CALL mel_d6f2 CALL mel_d6f2 TR 5 CALL mel_d6f2 CALL mel_d6f2 TR 7 CALL mel_d6f2 CALL mel_d6f2 CALL mel_d6f2 RET
+
+mel_d6c3:
+ENV env_d707 VIB vib_d712 TR 12 LOOP 4 CALL mel_d6f2 NEXT TR 9 LOOP 4 CALL mel_d6f2 NEXT TR 7 CALL mel_d6f2 CALL mel_d6f2 TR 5 CALL mel_d6f2 CALL mel_d6f2 TR 0 LOOP 4 CALL mel_d6f2 NEXT RET
+
+mel_d6f2:
+12,8 12,8 12,8 24,4 22,2 23,2 24,8 12,8 24,8 24,8 RET
+
+env_d707:
+15,1 14,1 13,1 12,255 JUMP env_d707
+
+vib_d712:
+7 5 -5 -7 -7 -5 5 7 JUMP vib_d712
+
+env_d71d:
+12,7 0,1 12,3 0,1 12,3 0,1 12,7 0,1 12,7 0,1 JUMP env_d71d
+
+vib_d734:
+9 7 5 -5 -7 -9 -9 -7 -5 5 7 9 JUMP vib_d734
+
+env_d743:
+0,1 15,1 14,3 13,3 12,50 11,40 10,40 9,20 8,255 JUMP env_d743
+
+vib_d758:
+127 127 127 115
+
+vib_d75c:
+-4 JUMP vib_d75c
+
+vib_d760:
+0 1 -1 0 -1 1 0 JUMP vib_d760
+
+env_d76a:
+1,9 2,9 3,9 4,9 5,9 6,9 7,9 8,9 9,9 10,9 11,9 12,9 13,255 JUMP env_d76a
+
+vib_d787:
+3 2 -2 -3 -3 -1 1 3 JUMP vib_d787
+
+vib_d792:
+7 -7 -7 7 0 JUMP vib_d792
+
+vib_d79a:
+30 -6 -6 -6 -6 -6 JUMP vib_d787
+
+env_d7a3:
+15,3 14,2 13,2 12,1 11,1 10,255 JUMP env_d7a3
+-- End at #d7b1
+

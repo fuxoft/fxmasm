@@ -1,0 +1,100 @@
+-- Axel F
+-- Main theme from Beverly Hills Cop movie, originally composed by Harold Faltermeyer. Experimenting with two voices playing the same melody with different vibratos, resulting in interesting timbre.
+
+voice1:
+ENV env_bf4b VIB vib_bf37 CALL mel_bdf9 CALL mel_bdf9 LOOP 8 0,96 NEXT VIB vib_bf85 ENV env_bf90 CALL mel_bdf9 CALL mel_bdf9 LOOP 2 CALL mel_bd95 NEXT CALL mel_bd80 VIB vib_bf85 ENV env_bf90 CALL mel_bdf9 CALL mel_bdf9 ENV env_bfc4 LOOP 2 LOOP 4 48,18 43,18 48,18 43,18 48,12 43,12 NEXT TR 12 NEXT TR 0 VIB vib_bfad ENV env_bf58 LOOP 2 LOOP 4 55,6 52,6 50,6 48,12 50,12 52,6 55,12 52,12 50,12 48,12 NEXT ENV env_bf6f TR 12 NEXT TR 0 CALL mel_bd95 CALL mel_bd95 CALL mel_bd80 JUMP voice1
+
+mel_bd80:
+VIB vib_bfe6 ENV env_bfcf 60,36 58,60 55,36 53,36 51,24 48,96 0,96 RET
+
+mel_bd95:
+VIB vib_bfb4 ENV env_bfc4 TR+ 12 0,12 40,12 40,12 40,6 43,18 43,12 VIB vib_bfbc 41,12 41,12 41,12 VIB vib_bfb4 40,12 40,12 40,6 43,12 43,6 VIB vib_bfbc 41,12 VIB vib_bfb4 40,12 VIB vib_bfbc 36,12 0,12 VIB vib_bfb4 36,12 36,12 36,12 36,6 38,12 38,18 38,12 38,6 40,12 40,18 40,12 38,6 LEG+ 40,18 LOOP 12 TR+ -1 40,2 NEXT TR+ 0 LEG- RET
+
+mel_bdf9:
+36,24 39,18 36,12 36,6 41,12 36,12 34,12 36,24 43,18 36,12 36,6 44,12 43,12 39,12 36,12 43,12 48,12 43,6 36,12 36,6 34,12 38,12 36,90 0,18 RET
+
+voice2:
+ENV env_bf4b VIB vib_bf42 CALL mel_bdf9 CALL mel_bdf9 LOOP 9 CALL mel_be79 NEXT LOOP 4 CALL mel_be4b NEXT LOOP 3 CALL mel_be79 NEXT JUMP voice2
+
+mel_be4b:
+ENV env_bfee VIB vib_bf85 TR 0 CALL mel_be68 TR -3 CALL mel_be68 TR -2 CALL mel_be68 TR -5 CALL mel_be68 TR 0 RET
+
+mel_be68:
+24,18 24,6 36,12 24,18 24,6 36,12 24,12 36,12 RET
+
+mel_be79:
+ENV env_bf6f VIB vib_bf7d TR+ 12 24,24 36,18 34,12 34,6 31,12 34,12 36,12 24,24 36,30 24,6 31,12 34,12 36,12 20,24 32,18 22,12 22,6 34,12 31,12 34,12 36,54 36,6 34,12 31,12 29,12 TR+ -12 RET
+
+voice3:
+LOOP 7 0,96 NEXT 0,24 CALL mel_bf22 LOOP 15 CALL mel_befd NEXT LOOP 8 0,24 CALL mel_bed3 0,18 NEXT JUMP voice3
+
+mel_bed3:
+ENV env_bf4b VIB vib_bf6b LEG+ NOISE 11 TYPE 0 80,1 NOISE 0 80,1 LEG- TYPE 8 0,4 RET
+
+mel_beea:
+ENV env_bfa2 LEG+ NOISE 12 TYPE 1 LOOP 12 13,1 NOISE+ -1 NEXT LEG- TYPE 8 RET
+
+mel_befd:
+LOOP 3 CALL mel_bed3 0,18 CALL mel_beea 0,12 CALL mel_bed3 CALL mel_bed3 0,6 CALL mel_bed3 CALL mel_beea 0,12 NEXT CALL mel_bed3 0,18 JUMP mel_bf22
+
+mel_bf22:
+VIB vib_bf6b ENV env_bf58 41,6 41,12 41,6 38,12 38,12 35,12 35,12 RET
+
+vib_bf37:
+6 -1 -1 -1 -1 -1
+
+vib_bf3d:
+1 -1 JUMP vib_bf3d
+
+vib_bf42:
+-6 1 1 1 1 1 JUMP vib_bf3d
+
+env_bf4b:
+12,3 11,3 10,3 9,3 8,255 JUMP env_bf4b
+
+env_bf58:
+15,1 64 63 62 61 60 59 58 57 56 55 54 53 0,255 JUMP env_bf58
+
+vib_bf6b:
+19 JUMP vib_bf6b
+
+env_bf6f:
+13,3 12,2 11,2 60 59 58 7,255 JUMP env_bf6f
+
+vib_bf7d:
+TONE -12 0 12 0 JUMP vib_bf7d
+
+vib_bf85:
+2 1 -1 -2 -2 -1 1 2 JUMP vib_bf85
+
+env_bf90:
+15,2 59 14,2 13,2 12,2 11,2 10,2 9,255 JUMP env_bf90
+
+env_bfa2:
+13,1 62 61 60 59 8,255 JUMP env_bfa2
+
+vib_bfad:
+1 -1 -1 1 JUMP vib_bfad
+
+vib_bfb4:
+TONE 3 0 -3 0 JUMP vib_bfb4
+
+vib_bfbc:
+TONE 4 0 -4 0 JUMP vib_bfbc
+
+env_bfc4:
+15,1 64 63 62 61 10,255 JUMP env_bfc4
+
+env_bfcf:
+15,2 50 14,2 50 13,2 50 12,2 50 11,2 50 10,2
+
+env_bfe0:
+50 9,2 JUMP env_bfe0
+
+vib_bfe6:
+TONE 7 5 7 -19 JUMP vib_bfe6
+
+env_bfee:
+0,1 65 64 63 62 11,255 JUMP env_bfee
+-- End at #bff8
+

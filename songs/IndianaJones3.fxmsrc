@@ -1,0 +1,119 @@
+-- Indiana Jones 3
+-- From my text adventure game of the same name. Contains John Williams' iconic Indiana Jones theme and then a bit of his Holy Grail theme (from Indiana Jones and the Last Crusade), significantly sped-up to match the main theme.
+-- This song originally contained two EXTERNAL_CALLs to precisely synchronize the music with the animation of game's opening title (i.e. the game waited until specific song moment to show the title for the maximum dramatic effect). These are now commented out. As far as I remember, this is my only song that used these special custom opcodes.
+
+voice1:
+-- EXTERNAL_CALL dummy_external_86ae 
+CALL mel_86b4 CALL mel_86ba CALL mel_8694 CALL mel_8694 CALL mel_86ba CALL mel_86ba CALL mel_866a TR 0 ENV env_864a VIB vib_8658 35,80 LOOP 2 40,60 35,60 33,60 40,20 35,20 40,60 42,80 VIB vib_8661 44,20 VIB vib_8658 34,40 39,60 40,60 35,60 VIB vib_8661 45,60 40,100 VIB vib_8658 45,40 VIB vib_8661 40,20 45,20 40,40 VIB vib_8658 35,60 NEXT 35,20 ENV env_86c5 VIB vib_86d1 CALL mel_866a CALL mel_86ba TR 0 JUMP voice1
+
+env_864a:
+14,1 63 62 61 60 59 58 57 56 55 JUMP env_864a
+
+vib_8658:
+TONE 4 0 3 0 -7 JUMP vib_8658
+
+vib_8661:
+TONE 3 0 4 0 -7 JUMP vib_8661
+
+mel_866a:
+LOOP 2 TR 10 CALL mel_86ba TR+ 2 CALL mel_86ba TR+ -2 CALL mel_86ba TR+ -2 CALL mel_86ba NEXT LOOP 2 TR+ 2 CALL mel_86ba TR+ -2 CALL mel_86ba NEXT TR+ -1 CALL mel_86ba RET
+
+mel_8694:
+LOOP 5 CALL mel_86ba NEXT TR+ 1 CALL mel_86ba TR+ 6 CALL mel_86ba CALL mel_86ba TR+ -7 RET 
+
+-- Z80 machine code for external calls in this song:
+-- Unexpected byte #3e at #86aa
+-- Unexpected byte #02 at #86ab
+-- Unexpected byte #18 at #86ac
+-- Unexpected byte #02 at #86ad
+-- Unexpected byte #3e at #86ae
+-- Unexpected byte #01 at #86af
+-- Unexpected byte #32 at #86b0
+-- Unexpected byte #00 at #86b1
+-- Unexpected byte #00 at #86b2
+-- Unexpected byte #c9 at #86b3
+
+mel_86b4:
+ENV env_86c5 VIB vib_86d1
+
+mel_86ba:
+16,10 16,20 16,10 16,20 16,20 RET
+
+env_86c5:
+15,3 14,2 63 62 61 60 59 58 7,0
+
+vib_86d1:
+XOR 0 XOR
+
+vib_86d4:
+-5 5 7 -7 0 JUMP vib_86d4
+
+env_86dc:
+13,3 12,3 11,2 10,2 9,2 8,0
+
+vib_86e8:
+TONE 7 -7 FREQ
+
+vib_86ec:
+2 2 -2 -2 -2 -2 2 2 JUMP vib_86ec
+
+voice2:
+ENV env_86dc VIB vib_86e8 LOOP 7 28,10 28,20 28,10 28,20 28,20 NEXT
+--EXTERNAL_CALL dummy_external_86aa
+CALL mel_87f1 LOOP 4 35,20 33,5 0,15 NEXT 28,20 CALL mel_87b2 40,40 45,20 44,5 0,10 42,5 40,80 CALL mel_875e LOOP 2 40,60 35,60 33,60 40,20 35,20 40,60 42,80 44,20 34,40 31,60 40,60 35,60 45,60 40,100 33,40 40,20 38,20 36,40 35,60 NEXT 35,20 CALL mel_875e JUMP voice2
+
+mel_875e:
+45,20 42,20 38,40 40,20 44,20 47,40 45,20 42,20 38,40 36,20 40,20 43,20 47,20 45,20 42,20 38,40 47,20 44,20 40,40 LOOP 2 38,20 42,20 45,20 50,20 40,10 36,10 43,10 40,10 48,10 43,10 52,10 48,10 NEXT 38,20 42,20 45,20 50,20 36,20 40,20 43,20 48,20 47,160 RET
+
+mel_87b2:
+VIB vib_89c8 ENV env_89d4 32,15 33,5 35,5 0,5 40,50 30,5 0,10 32,5 33,60 35,15 37,5 39,5 0,5 45,30 40,20 35,20 28,60 32,15 33,5 35,5 0,5 40,30 CALL mel_87f1 LOOP 4 35,20 33,5 0,15 NEXT RET
+
+mel_87f1:
+VIB vib_89c8 ENV env_89d4 29,7 33,6 36,7 41,7 45,6 48,7 53,40 RET
+
+voice3:
+0,135 TR 12 ENV env_89b5 VIB vib_89bd 0,5 CALL mel_8969 44,15 42,5 CALL mel_8969 45,20 44,5 0,10 42,5 40,80 21,20 20,5 0,10 18,5 16,20 CALL mel_88ee 0,20 ENV env_8849 VIB vib_8857 CALL mel_8863 CALL mel_8863 CALL mel_88ee 0,20 JUMP voice3
+
+env_8849:
+12,3 13,3 14,3 15,20 14,9 13,9 12,0
+
+vib_8857:
+0 0 0 0 0
+
+vib_885c:
+-1 1 1 -1 JUMP vib_885c
+
+mel_8863:
+35,20 40,30 44,10 42,10 39,10 35,40 45,50 44,5 42,5 44,10 42,5 40,5 42,20 35,20 40,30 47,9 0,1 47,10 46,10 42,30 49,9 0,1 49,10 46,10 47,10 44,10 46,10 41,20 43,5 44,5 43,60 35,20 40,30 44,10 42,10 39,10 35,40 48,18 0,2 48,18 0,2 48,10 47,5 45,5 47,60 52,20 40,20 45,30 43,5 42,5 43,10 40,10 45,15 42,5 43,10 40,20 39,5 40,5 42,60 RET
+
+env_88da:
+15,3 14,3 13,3 12,3 11,0
+
+vib_88e4:
+TONE 24 -24 12 0 -12 0 JUMP vib_88e4
+
+mel_88ee:
+ENV env_88da VIB vib_88e4 32,5 0,10 35,5 33,60 30,5 0,10 33,5 32,5 35,5 44,50 32,5 0,10 35,5 33,60 30,5 0,10 33,5 31,5 30,5 28,50 32,5 0,10 35,5 33,60 30,5 0,10 33,5 32,5 35,5 44,50 42,10 44,10 LOOP 2 CALL mel_8955 43,5 42,5 43,80 NEXT CALL mel_8955 43,5 42,5 TR+ -2 CALL mel_8955 TR 12 43,5 45,5 47,140 RET
+
+mel_8955:
+LOOP 2 45,5 0,5 38,5 37,5 38,5 0,5 NEXT 45,5 0,5 RET
+
+mel_8969:
+32,15 33,5 35,5 0,5 40,50 30,5 0,10 32,5 33,60 35,15 37,5 39,5 0,5 45,50 37,5 0,10 39,5 40,20 42,20 44,20 32,15 33,5 35,5 0,5 40,50 42,5 0,10 44,5 45,60 35,5 0,10 35,5 LOOP 3 44,20 42,5 0,10 35,5 NEXT RET
+
+env_89b5:
+14,3 13,15 12,15 11,0
+
+vib_89bd:
+-1 -1 1 1 1 1 -1 -1 JUMP vib_89bd
+
+vib_89c8:
+TONE 12 -12 FREQ
+
+vib_89cc:
+2 2 -2 -2 0 JUMP vib_89cc
+
+env_89d4:
+14,2 13,2 12,2 11,2 10,0 0,0 0,0 0,0
+-- End at #89e3
+

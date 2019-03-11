@@ -1,0 +1,79 @@
+-- Equinoxe V
+-- Another classic from Jean-Michel Jarre.
+
+voice1:
+TR 7 LOOP 8 CALL mel_b9af NEXT TR 4 LOOP 2 CALL mel_b809 CALL mel_b809 CALL mel_b7d3 NEXT CALL mel_b7a6 CALL mel_b7a6 CALL mel_b7be 45,24 43,24 VIB vib_ba33 46,16 VIB vib_ba2b 45,16 VIB vib_ba33 41,16 41,8 VIB vib_ba2b 40,16 40,8 43,24 VIB vib_ba33 41,24 VIB vib_ba2b 40,16 38,16 CALL mel_b7a6 CALL mel_b809 CALL mel_b809 CALL mel_b7d3 JUMP voice1
+
+mel_b7a6:
+CALL mel_b7be 40,32 LOOP 2 38,8 40,16 NEXT CALL mel_b7be LEG+ 40,64 41,8 42,8 LEG- RET
+
+mel_b7be:
+VIB vib_ba2b ENV env_ba3b 43,16 43,8 VIB vib_ba33 41,16 41,8 VIB vib_ba2b RET
+
+mel_b7d3:
+40,24 41,24 43,24 45,24 43,16 40,8 47,48 45,24 43,24 41,48 43,24 41,24 40,136 RET
+
+mel_b7ee:
+36,24 38,24 40,24 41,24 40,16 36,8 43,48 41,24 40,24 38,48 40,24 38,24 36,136 RET
+
+mel_b809:
+ENV env_ba07 VIB vib_b9fa LOOP 3 50,8 48,16 NEXT 47,24 45,160 LOOP 3 48,8 47,16 NEXT 45,24 43,160 RET
+
+voice2:
+TR 0 ENV env_b9df VIB vib_b9ef LOOP 8 35,1 23,8 23,4 35,4 23,8 23,7 NEXT TR 4 CALL mel_b8ea CALL mel_b8ea CALL mel_b7ee LOOP 2 CALL mel_b87d NEXT CALL mel_b7ee TR 0 LOOP 16 CALL mel_b9af NEXT TR 5 LOOP 8 CALL mel_b9af NEXT TR 0 LOOP 8 CALL mel_b9af NEXT ENV env_ba07 TR 4 VIB vib_b9fa CALL mel_b87d CALL mel_b87d CALL mel_b7ee JUMP voice2
+
+mel_b87d:
+LOOP 3 47,8 45,16 NEXT 43,24 41,16 ENV env_ba1e VIB vib_ba26 LOOP 3 77,4 72,4 69,4 65,4 72,4 69,4 65,4 60,4 69,4 65,4 60,4 57,4 TR+ -12 NEXT TR+ 36 VIB vib_b9fa ENV env_ba07 LOOP 3 45,8 43,16 NEXT 41,24 40,16 ENV env_ba1e VIB vib_ba26 LOOP 3 76,4 72,4 67,4 64,4 72,4 67,4 64,4 60,4 67,4 64,4 60,4 55,4 TR+ -12 NEXT TR+ 36 VIB vib_b9fa ENV env_ba07 RET
+
+mel_b8ea:
+VIB vib_b9fa ENV env_ba07 LOOP 3 47,8 45,16 NEXT 43,24 41,160 LOOP 3 45,8 43,16 NEXT 41,24 40,160 RET
+
+voice3:
+TR 0 VIB vib_ba46 ENV env_ba1e LOOP 2 71,8 71,8 71,48 59,64 NEXT LOOP 2 CALL mel_b996 CALL mel_b996 CALL mel_b97d NEXT TR 4 CALL mel_b944 CALL mel_b944 TR -3 CALL mel_b944 TR 4 CALL mel_b944 CALL mel_b996 CALL mel_b996 CALL mel_b97d JUMP voice3
+
+mel_b944:
+ENV env_ba1e VIB vib_ba26 LOOP 3 76,4 72,4 70,4 67,4 72,4 70,4 67,4 64,4 70,4 67,4 64,4 60,4 67,4 64,4 60,4 58,4 TR+ -12 NEXT TR+ 36 LEG+ LOOP 64 TR+ 1 8,1 NEXT LEG- TR+ -64 RET
+
+mel_b97d:
+TR 0 LOOP 4 CALL mel_b9af NEXT TR 7 LOOP 6 CALL mel_b9af NEXT TR 0 LOOP 4 CALL mel_b9af NEXT RET
+
+mel_b996:
+TR 7 LOOP 3 CALL mel_b9af NEXT TR 5 LOOP 8 CALL mel_b9af NEXT TR 0 LOOP 5 CALL mel_b9af NEXT RET
+
+mel_b9af:
+ENV env_b9df VIB vib_b9ef CALL mel_b9d4 CALL mel_b9d4 LEG+ TYPE 1 NOISE 25 LOOP 4 7,1 NOISE 5 7,1 NOISE 16 NEXT LEG- TR+ 12 CALL mel_b9d4 TR+ -12 RET
+
+mel_b9d4:
+TYPE 1 NOISE 1 36,1 TYPE 8 16,7 RET
+
+env_b9df:
+15,1 64 63 62 61 60 59 58 57 56 5,255 JUMP env_b9df
+
+vib_b9ef:
+-3 -3 3 3 3 3 -3 -3 JUMP vib_b9ef
+
+vib_b9fa:
+TONE 12 -12 FREQ 2 2 -2 -2 -4 4 JUMP vib_b9fa
+
+env_ba07:
+14,2 13,2 12,2 11,59 10,40 9,40 8,30 7,30 6,30 5,255 JUMP env_ba07
+
+env_ba1e:
+14,1 62 11,255 JUMP env_ba1e
+
+vib_ba26:
+1 -1 JUMP vib_ba26
+
+vib_ba2b:
+TONE 3 0 -3 0 JUMP vib_ba2b
+
+vib_ba33:
+TONE 4 0 -4 0 JUMP vib_ba33
+
+env_ba3b:
+15,3 14,2 13,2 12,255 JUMP env_ba3b
+
+vib_ba46:
+2 JUMP vib_ba46
+-- End at #ba49
+

@@ -1,0 +1,110 @@
+-- Red Dawn (Tetris 2 ingame music).
+-- Heavily inspired by Rob Hubbard's Rasputin music
+
+voice1:
+LOOP 2 VIB vib_ce5b ENV env_ce61 80,128 80,128 CALL mel_cff4 CALL mel_cff4 CALL mel_cfa8 CALL mel_cfa8 CALL mel_cf3b CALL mel_cf3b CALL mel_cee6 CALL mel_cee6 CALL mel_ce65 CALL mel_ce65 NEXT VIB vib_ce5b ENV env_ce61 80,128 80,112 CALL mel_cd60 VIB vib_cd58 CALL mel_cd66 0,16 JUMP voice1
+
+vib_cd58:
+TONE 12 0 -12 0 JUMP vib_cd58
+
+mel_cd60:
+VIB vib_d055 ENV env_d05e
+
+mel_cd66:
+47,16 52,24 51,8 54,8 52,8 47,8 44,8 49,32 45,24 49,8 54,24 52,8 51,8 49,8 47,8 45,8 44,48 47,16 52,24 51,8 54,8 52,8 47,8 44,8 49,32 45,8 49,8 54,8 52,8 51,16 54,16 57,16 51,16 52,48 56,8 54,8 51,24 51,8 49,8 51,8 52,8 49,8 51,32 47,8 47,8 46,8 47,8 49,24 49,8 54,16 52,16 51,48 54,16 54,24 51,8 47,8 47,8 46,8 47,8 56,32 52,8 49,8 51,8 52,8 51,16 54,16 52,16 49,16 47,48 56,8 54,8 52,32 47,24 44,8 49,32 45,16 54,8 52,8 51,32 49,16 47,16 47,48 47,16 56,32 54,16 47,8 47,8 52,32 51,24 51,8 49,24 48,8 49,16 54,16 54,48 56,8 54,8 52,32 47,24 44,8 49,32 45,16 54,8 52,8 51,32 49,16 47,16 56,48 56,16 59,32 57,16 56,8 56,8 54,24 56,8 57,24 57,8 56,24 56,8 54,24 54,8 52,48 RET
+
+vib_ce5b:
+TONE 3 -4 JUMP vib_ce5b
+
+env_ce61:
+13,222 13,222
+
+mel_ce65:
+VIB vib_cfee ENV env_cfe7 61,8 62,8 63,8 64,8 66,8 64,8 62,8 61,8 59,8 61,8 62,8 61,8 64,8 62,8 61,8 59,8 61,8 62,8 63,8 64,8 66,8 64,8 62,8 61,8 59,8 61,8 62,8 61,8 64,8 62,8 61,8 59,8 54,8 56,8 57,8 56,8 59,8 57,8 56,8 54,8 56,8 57,8 58,8 59,8 61,8 59,8 57,8 56,8 54,8 56,8 57,8 56,8 59,8 57,8 56,8 54,8 56,8 57,8 59,8 56,8 52,32 RET
+
+mel_cee6:
+57,23 59,8 61,8 61,8 59,8 57,8 56,16 57,16 59,16 52,24 57,16 59,8 61,8 61,8 59,8 57,8 56,16 57,16 59,16 52,24 54,16 56,8 57,8 57,8 56,8 54,8 52,16 56,16 59,16 57,8 56,16 54,16 56,8 57,8 57,8 56,8 54,8 52,16 56,16 59,16 57,8 56,9 RET
+
+mel_cf3b:
+VIB vib_d055 ENV env_d05e 0,7 56,16 54,8 52,16 52,16 52,4 54,4 52,4 51,4 52,8 54,8 56,16 56,16 0,8 59,16 57,8 56,16 56,16 56,4 57,4 56,4 54,4 56,8 57,8 59,16 59,16 0,8 57,16 57,8 57,16 61,8 59,4 57,4 56,16 56,16 56,16 52,16 0,8 51,16 51,8 51,16 54,8 52,4 51,4 52,8 49,8 49,4 51,4 49,4 48,4 49,33 RET
+
+mel_cfa8:
+VIB vib_cfee ENV env_cfe7 54,16 51,8 52,8 54,16 51,8 52,8 54,4 56,4 54,4 52,4 51,8 52,8 49,16 57,8 56,8 54,16 51,8 52,8 54,16 51,8 52,8 56,4 57,4 56,4 54,4 56,8 60,8 61,32 RET
+
+env_cfe7:
+14,1 63 62 61 10,0
+
+vib_cfee:
+TONE 12 -12 JUMP vib_cfee
+
+mel_cff4:
+VIB vib_d055 ENV env_d05e 49,23 51,8 52,24 49,4 51,4 52,8 52,8 51,8 49,8 51,16 44,16 0,8 51,16 52,8 54,24 51,4 52,4 54,8 54,8 52,8 51,8 49,32 56,16 61,16 59,8 61,16 59,8 57,8 57,8 56,8 54,8 56,16 49,16 0,8 57,16 54,8 56,24 51,4 52,4 54,8 54,8 52,8 51,8 49,16 0,17 RET
+
+vib_d055:
+-2 -2 2 2 3 -3 JUMP vib_d055
+
+env_d05e:
+0,1 15,1 64 63 12,0
+
+voice2:
+ENV env_d07d VIB vib_d08c 40,16 NOISE 13 CALL mel_d0a8 37,16 NOISE 7 CALL mel_d0a8 JUMP voice2
+
+env_d07d:
+15,3 14,2 13,2 12,2 61 60 59 58 57 0,0
+
+vib_d08c:
+29 JUMP vib_d08c
+-- Some forgotten unused crap here...????
+-- Unexpected byte #85 at #d090
+-- Unexpected byte #01 at #d091
+-- Unexpected byte #8a at #d092
+-- Unexpected byte #87 at #d093
+-- Unexpected byte #bc at #d094
+-- Unexpected byte #d0 at #d095
+-- Unexpected byte #82 at #d096
+-- Unexpected byte #04 at #d097
+-- Unexpected byte #84 at #d098
+-- Unexpected byte #1a at #d099
+-- Unexpected byte #07 at #d09a
+-- Unexpected byte #01 at #d09b
+-- Unexpected byte #84 at #d09c
+-- Unexpected byte #00 at #d09d
+-- Unexpected byte #07 at #d09e
+-- Unexpected byte #01 at #d09f
+-- Unexpected byte #83 at #d0a0
+-- Unexpected byte #8b at #d0a1
+-- Unexpected byte #85 at #d0a2
+-- Unexpected byte #08 at #d0a3
+-- Unexpected byte #87 at #d0a4
+-- Unexpected byte #5e at #d0a5
+-- Unexpected byte #d0 at #d0a6
+-- Unexpected byte #89 at #d0a7
+
+mel_d0a8:
+TYPE 1 LEG+ ENV env_d0bc LOOP 16 57,1 NOISE+ 16 NEXT LEG- TYPE 8 ENV env_d07d RET
+
+env_d0bc:
+15,1 64 63 62 61 60 59 58 57 56 55 0,0
+
+voice3:
+LOOP 2 VIB vib_d17a ENV env_d16f 13,0 CALL mel_d15c CALL mel_d15c LOOP 4 20,96 13,32 NEXT CALL mel_d14f CALL mel_d14f LOOP 4 CALL mel_d13e NEXT NEXT 16,0 CALL mel_d0f9 CALL mel_d0f9 JUMP voice3
+
+mel_d0f9:
+16,64 21,64 23,64 16,128 21,64 23,64 16,64 23,32 18,32 23,64 18,64 15,64 23,64 16,64 23,32 18,32 23,64 16,64 21,64 23,64 16,96 23,32 13,32 20,32 21,64 23,64 16,64 21,64 23,64 16,128 18,64 16,32 23,32 16,64 RET
+
+mel_d13e:
+21,64 16,64 21,64 16,64 23,64 16,64 23,64 16,64 RET
+
+mel_d14f:
+13,128 16,128 18,64 13,64 20,64 13,64 RET
+
+mel_d15c:
+13,96 20,128 13,96 18,32 13,32 18,32 13,32 20,32 13,32 RET
+
+env_d16f:
+15,2 14,2 63 62 11,2 JUMP env_d16f
+
+vib_d17a:
+9 4 -4 -9 -9 -4 4 TONE 12 FREQ 4 2 -2 -4 -4 -2 2 TONE -5 FREQ 6 3 -3 -6 -6 -3 3 TONE 5 FREQ 4 2 -2 -4 -4 -2 2 TONE -12 FREQ JUMP vib_d17a
+-- End at #d1a4
+

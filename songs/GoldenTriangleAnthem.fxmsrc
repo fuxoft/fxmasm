@@ -1,0 +1,50 @@
+-- Golden Triangle Anthem
+-- This was the "anthem" of Golden Triangle Group, e.g. me, Miroslav Fídler and Tomáš Rylek. This melody was originally composed by John Williams for "The Mission" episode of "Amazing Stories" TV series. The track is called "The Landing" on the original soundtrack (and has nothing to do with Williams' track called "The Mission" and composed for the NBC News).
+-- This melody was very suitable for efficient conversion to my music format because the first and second quarter of the theme are exactly same, just transposed one semitone up.
+
+voice1:
+VIB vib_8a21 ENV env_8a17 40,160 40,40 42,40 40,80 41,160 41,40 43,40 41,80 37,80 39,80 35,40 37,40 39,80 36,80 38,80 41,40 43,40 38,80 JUMP voice1
+
+env_8a17:
+15,8 14,9 13,9 12,9 11,0
+
+vib_8a21:
+TONE 0 4 0 3 0 5 0 4 0 -16 JUMP vib_8a21
+
+mel_8a2f:
+ENV env_8a47 TYPE 1 LEG+ LOOP 10 NOISE 31 7,1 NOISE 10 7,1 NEXT LEG- TYPE 8 ENV env_8adc RET
+
+env_8a47:
+15,4 14,2 13,2 62 61 10,0
+
+mel_8a51:
+LOOP 2 CALL mel_8a2f TR+ 1 41,19 41,20 43,20 36,60 43,5 41,5 40,5 41,5 43,20 45,5 43,5 41,5 43,5 45,20 47,5 45,5 43,5 45,5 47,20 48,61 NEXT CALL mel_8a2f 44,19 44,20 43,10 44,10 46,20 44,20 44,20 43,5 41,5 43,5 39,5 42,20 41,20 41,20 41,5 39,5 41,5 37,4 0,1 37,20 39,61 CALL mel_8a2f 43,19 43,20 42,10 43,10 50,20 45,20 43,20 42,5 40,5 42,5 38,5 48,20 47,20 47,20 47,5 45,5 47,5 43,4 0,1 43,20 45,61 RET
+
+env_8adc:
+0,1 15,2 14,0
+
+vib_8ae2:
+TONE 0 12 0 -12 JUMP vib_8ae2
+
+voice2:
+ENV env_8b51 VIB vib_8b59 TR 0 LOOP 8 CALL mel_8b38 NEXT TR 1 LOOP 8 CALL mel_8b38 NEXT TR -3 CALL mel_8b35 TR -1 CALL mel_8b35 TR -5 CALL mel_8b38 TR -3 CALL mel_8b38 TR -1 CALL mel_8b35 TR -4 CALL mel_8b35 TR -2 CALL mel_8b35 TR 1 CALL mel_8b38 TR 3 CALL mel_8b38 TR -2 CALL mel_8b35 JUMP voice2
+
+mel_8b35:
+CALL mel_8b38
+
+mel_8b38:
+TR+ -12 52,4 56,4 59,4 64,4 68,4 71,4 68,4 64,4 59,4 56,4 TR+ 12 RET
+
+env_8b51:
+14,1 63 62 61 JUMP env_8b51
+
+vib_8b59:
+0 JUMP vib_8b59
+
+vib_8b5d:
+-1 -1 -1 1 1 1 0 0 0 0 JUMP vib_8b5d
+
+voice3:
+TR 22 VIB vib_8b5d CALL mel_8a51 TR 10 VIB vib_8ae2 CALL mel_8a51 JUMP voice3
+-- End at #8b7c
+

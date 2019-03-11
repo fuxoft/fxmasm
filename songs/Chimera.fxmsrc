@@ -1,0 +1,76 @@
+-- Chimera
+-- An adaptation of Rob Hubbard's classic C64 music. I remember doing this instead of studying for the exam I had the next day...
+
+voice3:
+VIB vib_f194 ENV env_f1e6 LOOP 8 67,4 NEXT 67,224 ENV env_f1b2 VIB vib_f222 0,128 45,8 45,16 45,8 45,16 43,8 43,16 43,8 43,16 41,8 41,8 41,16 ENV env_f1e6 VIB vib_f194 79,192 ENV env_f1b2 VIB vib_f222 45,8 45,16 42,16 42,8 42,8 42,8 CALL mel_ef33 CALL mel_ef52 CALL mel_ef33 CALL mel_ef52 CALL mel_ef69 CALL mel_ef8c CALL mel_ef33 CALL mel_ef33 TR 3 CALL mel_ef33 CALL mel_ef33 TR 0 CALL mel_ef69 CALL mel_ef8c CALL mel_ef33 CALL mel_ef8c TR 3 CALL mel_ef33 CALL mel_ef8c TR 0 CALL mel_ef69 CALL mel_ef69 CALL mel_ef52 CALL mel_ef33 CALL mel_ef33 TR 3 CALL mel_ef33 CALL mel_ef33 TR 0 CALL mel_ef69 CALL mel_ef8c JUMP voice3
+
+mel_ef33:
+ENV env_f1d1 VIB vib_f217 45,16 45,16 45,8 47,8 43,64 38,16 45,16 45,16 45,8 47,8 50,64 45,16 RET
+
+mel_ef52:
+43,32 ENV env_f1e6 VIB vib_f194 79,32 74,32 69,32 67,32 62,32 57,32 55,32 RET
+
+mel_ef69:
+ENV env_f1d1 VIB vib_f194 47,8 48,8 55,24 54,24 52,24 50,24 48,16 47,8 48,8 55,24 54,24 59,24 60,24 62,16 RET
+
+mel_ef8c:
+ENV env_f1e6 55,48 ENV env_f1b2 VIB vib_f222 VIB vib_f194 79,16 74,16 69,16 74,16 69,16 67,16 62,16 57,16 69,16 ENV env_f1b2 VIB vib_f222 45,8 45,16 42,16 42,8 42,8 42,8 RET
+
+voice2:
+ENV env_f1e6 VIB vib_f194 55,128 0,128 0,128 ENV env_f1b2 VIB vib_f222 46,8 46,16 46,8 46,16 44,8 44,16 44,8 44,16 42,8 42,8 42,16 LOOP 10 CALL mel_f048 NEXT TR 7 CALL mel_f048 CALL mel_f048 TR 0 LOOP 6 CALL mel_f048 NEXT TR 3 LOOP 4 CALL mel_f048 NEXT TR 7 CALL mel_f048 CALL mel_f048 TR 0 LOOP 6 CALL mel_f048 NEXT TR 3 LOOP 4 CALL mel_f048 NEXT TR 7 LOOP 4 CALL mel_f048 NEXT TR 0 LOOP 6 CALL mel_f048 NEXT TR 3 LOOP 4 CALL mel_f048 NEXT TR 7 CALL mel_f048 CALL mel_f048 TR 0 CALL mel_f048 CALL mel_f048 JUMP voice2
+
+mel_f048:
+ENV env_f1a7 VIB vib_f19c 19,15 0,1 19,16 ENV env_f1b2 NOISE 0 TYPE 1 77,16 ENV env_f1a7 TYPE 8 19,7 0,1 19,8 26,3 27,3 28,10 26,16 TYPE 1 ENV env_f1b2 77,16 ENV env_f1a7 TYPE 8 28,8 27,4 26,4 RET
+
+voice1:
+CALL mel_f171 CALL mel_f117 LOOP 2 CALL mel_f171 NEXT CALL mel_f0da CALL mel_f0fd CALL mel_f117 CALL mel_f117 TR 3 CALL mel_f117 CALL mel_f117 TR 0 CALL mel_f0da CALL mel_f0fd CALL mel_f117 CALL mel_f0fd TR 3 CALL mel_f117 CALL mel_f0fd TR 0 CALL mel_f0da CALL mel_f0da LOOP 3 CALL mel_f117 NEXT TR 3 CALL mel_f117 CALL mel_f117 TR 0 CALL mel_f0da CALL mel_f0fd JUMP voice1
+
+mel_f0da:
+ENV env_f1d1 VIB vib_f217 43,8 45,8 52,24 50,24 48,24 47,24 45,16 43,8 45,8 52,24 50,24 55,24 57,24 59,16 RET
+
+mel_f0fd:
+ENV env_f18b VIB vib_f194 LOOP 8 62,4 67,4 69,4 74,4 NEXT ENV env_f226 VIB vib_f22d 55,128 RET
+
+mel_f117:
+ENV env_f18b VIB vib_f194 26,4 31,4 33,4 38,4 31,4 33,4 38,4 43,4 33,4 38,4 43,4 45,4 38,4 43,4 45,4 50,4 43,4 45,4 50,4 55,4 45,4 50,4 55,4 57,4 50,4 55,4 57,4 62,4 55,4 57,4 62,4 67,4 57,4 62,4 67,4 69,4 LOOP 7 62,4 67,4 69,4 74,4 NEXT RET
+
+mel_f171:
+CALL mel_f117 LOOP 2 57,4 62,4 67,4 69,4 NEXT LOOP 14 62,4 67,4 69,4 74,4 NEXT RET
+
+env_f18b:
+11,1 10,1 9,5 JUMP env_f18b
+
+vib_f194:
+0 0 0 0 0 JUMP vib_f194
+
+vib_f19c:
+5 2 -2 -5 -5 -2 2 5 JUMP vib_f19c
+
+env_f1a7:
+12,1 11,1 10,1 9,1 JUMP env_f1a7
+
+env_f1b2:
+14,2 0,1 13,2 0,1 12,2 0,1 11,2 0,1 10,2 0,1 9,2 0,1 8,2 0,240 JUMP env_f1b2
+
+env_f1d1:
+10,1 11,1 12,1 13,1 14,3 13,5 12,7 11,8 10,240 JUMP env_f1d1
+
+env_f1e6:
+15,2 0,1 15,2 0,1 14,1 0,1 14,2 0,1 13,2 0,1 11,1 0,1 12,2 0,1 11,2 0,1 10,1 0,1
+
+env_f20a:
+10,9 9,9 8,9 7,9 6,240 JUMP env_f20a
+
+vib_f217:
+2 3 -3 -2 -2 -3 3 2 JUMP vib_f217
+
+vib_f222:
+18 JUMP vib_f222
+
+env_f226:
+11,2 7,1 JUMP env_f226
+
+vib_f22d:
+0 0 -1 JUMP vib_f22d
+-- End at #f232
+

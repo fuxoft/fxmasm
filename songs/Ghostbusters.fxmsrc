@@ -1,0 +1,169 @@
+-- Ghostbusters
+-- Ray Parker's famous song from the classic movie. Someone told me that this song can never sound OK on ZX Spectrum so I attempted this.
+
+voice1:
+ENV env_fdea VIB vib_fea9 36,48 32,48 31,48 30,48 29,48 39,48 ENV env_fdb0 35,96 NOISE 20 TYPE 0 LOOP 8 47,1 0,5 NEXT TYPE 8 ENV env_fe00 VIB vib_fe4e NOISE 9 TYPE 0 LOOP 8 40,6 NEXT ENV env_fdb0 NOISE 31 TYPE 0 LEG+ LOOP 32 83,1 7,1 NOISE+ -1 NEXT LEG- 0,32 0,96 0,96 0,96 TYPE 8 CALL mel_fb34 LOOP 2 CALL mel_fadf CALL mel_faa4 CALL mel_fa84 NEXT CALL mel_fae2 CALL mel_fa3a CALL mel_fb34 CALL mel_fadf CALL mel_fa3a LOOP 4 CALL mel_fb3a NEXT ENV env_fdea VIB vib_fe43 36,66 0,126 0,96 0,96 JUMP voice1
+
+mel_fa3a:
+VIB vib_fe9e CALL mel_fa74 51,24 50,24 46,120 CALL mel_fa74 50,24 46,24 48,120 CALL mel_fa74 51,12 53,12 55,12 53,6 51,126 CALL mel_fa74 50,24 46,24 53,24 ENV env_fe3c VIB vib_fe6f 55,24 53,24 51,24 50,24 RET
+
+mel_fa74:
+ENV env_fdde LOOP 4 83,1 82,1 0,4 NEXT ENV env_fdea RET
+
+mel_fa84:
+VIB vib_fe4e ENV env_fe3c 48,48 VIB vib_fe43 48,96 46,6 45,6 43,6 41,6 39,12 40,6 43,6 36,12 JUMP mel_fb3c
+
+mel_faa4:
+ENV env_fdea VIB vib_fdd7 LOOP 2 LOOP 4 51,24 48,6 0,6 NEXT 51,6 0,6 48,6 0,6 46,6 47,6 48,12 NEXT LOOP 2 LOOP 4 55,24 51,6 0,6 NEXT 55,6 0,6 51,6 0,6 49,6 50,6 51,12 NEXT RET
+
+mel_fadf:
+CALL mel_fae2
+
+mel_fae2:
+ENV env_fdea VIB vib_fdf5 52,12 48,6 0,6 52,24 0,36 48,6 46,6 48,6 0,6 48,6 0,6 48,24 0,48 VIB vib_fde3 ENV env_fe0f 48,12 48,12 51,6 52,6 55,12 58,12 58,12 53,12 53,12 48,12 48,12 51,6 52,6 55,12 VIB vib_fdc1 58,6 57,6 55,12 57,6 55,6 53,12 RET
+
+mel_fb34:
+CALL mel_fb3a JUMP mel_fb66
+
+mel_fb3a:
+0,12
+
+mel_fb3c:
+ENV env_fdea VIB vib_fdf5 48,4 0,2 48,4 0,2 52,12 48,6 0,6 50,12 46,6 0,30 0,24 LOOP 4 48,4 0,2 NEXT 46,12 48,6 0,30 RET
+
+mel_fb66:
+0,12 48,4 0,2 48,4 0,2 52,12 48,6 0,6 50,12 46,6 0,30 ENV env_fe00 VIB vib_fe09 TR 24 LOOP 16 33,4 0,2 TR+ 1 NEXT TR 0 RET
+
+voice2:
+ENV env_febb VIB vib_feb3 LOOP 20 47,12 48,12 NEXT LOOP 16 CALL mel_fc36 NEXT CALL mel_fbfc LOOP 12 CALL mel_fc36 NEXT CALL mel_fbfc LOOP 8 CALL mel_fc36 NEXT CALL mel_fbd8 LOOP 12 CALL mel_fc36 NEXT CALL mel_fbd8 LOOP 8 CALL mel_fc36 NEXT ENV env_fdea VIB vib_fdc1 60,96 0,96 0,96 0,96 JUMP voice2
+
+mel_fbd8:
+LOOP 4 ENV env_fdea VIB vib_fe31 36,12 34,84 ENV env_fe56 VIB vib_fe6b 67,12 75,12 74,12 70,12 72,12 75,12 74,12 70,12 NEXT RET
+
+mel_fbfc:
+LOOP 4 TR 2 CALL mel_fc4c CALL mel_fc5b CALL mel_fc4c CALL mel_fc76 CALL mel_fc4c CALL mel_fc5b CALL mel_fc76 LOOP 2 CALL mel_fc5b CALL mel_fc4c NEXT CALL mel_fc76 TR 0 VIB vib_fdac 40,6 0,6 40,6 0,6 39,6 38,6 37,12 NEXT RET
+
+mel_fc36:
+CALL mel_fc4c 36,12 CALL mel_fc76 CALL mel_fc5b 46,12 CALL mel_fc4c 45,12 CALL mel_fc5b RET
+
+mel_fc4c:
+ENV env_fdb0 VIB vib_fdac 36,12 ENV env_fdb0 VIB vib_fdc1 RET
+
+mel_fc5b:
+ENV env_fdde TYPE 1 LOOP 2 NOISE 31 7,1 NOISE 0 7,1 0,4 NEXT ENV env_fdb0 TYPE 8 VIB vib_fdc1 RET
+
+mel_fc76:
+ENV env_fdc7 TYPE 1 LEG+ LOOP 6 NOISE 9 7,1 NOISE 0 7,1 NEXT LEG- TYPE 8 ENV env_fdb0 RET
+
+voice3:
+ENV env_fdb0 VIB vib_feb7 LOOP 20 47,12 48,12 NEXT LOOP 16 CALL mel_fd67 NEXT CALL mel_fd34 LOOP 12 CALL mel_fd67 NEXT CALL mel_fd34 LOOP 8 CALL mel_fd67 NEXT CALL mel_fcf8 LOOP 12 CALL mel_fd67 NEXT CALL mel_fcf8 LOOP 8 CALL mel_fd67 NEXT ENV env_fdb0 VIB vib_fdac TR 3 LOOP 3 42,5 0,1 42,5 0,1 42,9 0,3 42,9 0,3 42,9 0,3 TR+ -2 NEXT TR 0 39,12 0,12 CALL mel_fc76 0,12 0,96 0,96 JUMP voice3
+
+mel_fcf8:
+LOOP 14 CALL mel_fc76 TYPE 1 NOISE 31 7,1 0,5 NOISE 10 7,1 0,5 TYPE 8 CALL mel_fc4c CALL mel_fc5b NEXT ENV env_fe3e VIB vib_fdac LOOP 2 42,5 0,1 42,5 0,1 42,9 0,3 40,9 0,3 40,12 TR -2 NEXT TR 0 RET
+
+mel_fd34:
+ENV env_fdea VIB vib_fe31 LOOP 2 36,72 34,72 CALL mel_fd4c 33,72 29,72 CALL mel_fd4c NEXT RET
+
+mel_fd4c:
+ENV env_fdc7 NOISE 0 TYPE 1 7,12 7,12 7,6 7,6 NOISE 25 7,10 TYPE 8 0,2 ENV env_fdea RET
+
+mel_fd67:
+VIB vib_fd93 ENV env_fd85 24,12 LOOP 3 24,2 NEXT 24,6 27,6 28,6 31,12 34,12 34,12 29,12 29,12 RET
+
+env_fd85:
+15,3 64 63 62 61 60 59 58 7,255 JUMP env_fd85
+
+vib_fd93:
+10 5 -5 -10 -10 -5 5 10 JUMP vib_fd93
+
+vib_fd9e:
+15 9 64 63 62 61 60 59 58 7 -1 JUMP vib_fd9e
+
+vib_fdac:
+39 JUMP vib_fdac
+
+env_fdb0:
+15,4 14,3 13,2
+
+env_fdb6:
+12,2 11,2 10,2 9,255 JUMP env_fdb6
+
+vib_fdc1:
+TONE 12 -12 JUMP vib_fdc1
+
+env_fdc7:
+14,2 13,2 62 61 60 9,2 8,5 0,255 JUMP env_fdc7
+
+vib_fdd7:
+7 -7 -7 7 JUMP vib_fdd7
+
+env_fdde:
+13,255 JUMP env_fdde
+
+vib_fde3:
+1 -1 -1 1 JUMP vib_fde3
+
+env_fdea:
+15,3 14,3 13,3 12,255 JUMP env_fdea
+
+vib_fdf5:
+2 1 -1 -2 -2 -1 1 2 JUMP vib_fdf5
+
+env_fe00:
+15,2 64 63 62 59 JUMP env_fe00
+
+vib_fe09:
+TONE -12 0 JUMP vib_fe09
+
+env_fe0f:
+15,2 50 14,2 50 13,2 50 12,2 50 11,2 50 10,2 50 9,2 50 8,2 50 7,2 50 6,2 0,255 JUMP env_fe0f
+
+vib_fe31:
+10 7 -7 -10 -10 -7 7 10 JUMP vib_fe31
+
+env_fe3c:
+0,1
+
+env_fe3e:
+15,255 JUMP env_fe3c
+
+vib_fe43:
+5 2 -5 -2 -5 -2 5 2 JUMP vib_fe43
+
+vib_fe4e:
+120 120 120 80
+
+vib_fe52:
+-10 JUMP vib_fe52
+
+env_fe56:
+13,1 50 62 50 61 50 60 50 59 50 58 50 57 50 56 0,255 JUMP env_fe56
+
+vib_fe6b:
+0 JUMP vib_fe6b
+
+vib_fe6f:
+50 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5
+
+vib_fe7a:
+2 2 -2 -2 -4 4 JUMP vib_fe7a 14 4 0 2 13 4 0 2 12 4 0 2 11 4 0 2 10 4 0 2
+
+vib_fe97:
+9 4 0 2 JUMP vib_fe97
+
+vib_fe9e:
+TONE 12 -12 FREQ 3 -3 -3 3 JUMP vib_fe9e
+
+vib_fea9:
+8 -4 -4 -4 -4 4 4 JUMP vib_fea9
+
+vib_feb3:
+0 JUMP vib_feb3
+
+vib_feb7:
+1 JUMP vib_feb3
+
+env_febb:
+12,255 JUMP env_febb 0,0 0,0 6,15 33,6 255 94 35,86 35,175 18,28 28,18 28,28 18,16 242 6,3 197 33,83 196 17,20 0,25 16,253 126 35,182 35,40 25,126 230 15,40 20,71 241 245 61 135 79 33,6 255 126 35,86 35,129 95 62 126 18,16 245 193 16,212 201 186 86 186 84 186 82 186 80 154 86 154 84 154 82 154 80 122 86 122 84 122 82 122 80 90 86 90 84 90 82 74 116 182 116 0,0
+-- End at #ff29
+

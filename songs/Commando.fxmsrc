@@ -1,0 +1,172 @@
+-- Commando
+-- Adapted from Rob Hubbard's original C64 track because someone said "it cannot be done on Spectrum".
+
+voice3:
+LOOP 4 CALL mel_f65c NEXT CALL mel_f572 CALL mel_f572 CALL mel_f605 CALL mel_f538 CALL mel_f538 CALL mel_f51c CALL mel_f46f CALL mel_f46f TR 0 CALL mel_f4bf CALL mel_f4bf TR 2 CALL mel_f4bf TR 0 CALL mel_f4f4 LOOP 4 CALL mel_f44e NEXT CALL mel_f51c CALL mel_f44e CALL mel_f44e CALL mel_f51f CALL mel_f44e ENV env_f954 VIB vib_f963 43,35 VIB vib_f9a0 43,12 VIB vib_f963 45,72 43,12 45,12 50,12 48,12 45,24 48,36 VIB vib_f9a0 48,12 VIB vib_f963 50,72 50,12 55,12 54,12 50,12 45,24 43,36 VIB vib_f9a0 43,12 VIB vib_f963 45,72 50,12 VIB vib_f99c 50,12 VIB vib_f963 50,12 48,12 45,24 50,36 VIB vib_f99c 50,12 VIB vib_f963 48,72 50,12 52,12 55,12 54,12 55,12 57,12 55,36 VIB vib_f9a0 55,12 VIB vib_f963 57,48 55,6 57,12 55,6 57,12 55,6 54,12 55,6 54,12 52,12 50,12 48,6 50,12 48,6 50,12 48,6 47,12 48,6 47,12 45,12 43,12 45,6 45,12 43,6 45,12 47,6 48,12 50,6 52,12 54,12 55,12 59,36 VIB vib_f99c 59,12 VIB vib_f963 57,72 55,12 57,12 60,6 60,6 57,12 62,12 60,12 64,36 VIB vib_f99c 64,12 VIB vib_f963 62,96 0,6 62,6 62,6 64,6 65,6 64,6 60,6 62,7 CALL mel_f3de CALL mel_f416 LOOP 2 61,11 54,12 59,12 54,6 58,12 54,6 56,12 54,6 54,6 59,6 61,6 61,6 61,6 54,12 59,12 54,6 58,12 54,6 56,12 54,6 54,6 59,6 61,7 NEXT CALL mel_f46f CALL mel_f44e CALL mel_f3c8 CALL mel_f51f CALL mel_f451 CALL mel_f4bf CALL mel_f451 TR 2 CALL mel_f4bf TR 0 CALL mel_f4f4 CALL mel_f451 CALL mel_f3c8 JUMP voice3
+
+mel_f3c8:
+ENV env_f904 70,24 0,48 ENV env_f938 VIB vib_f920 40,11 0,1 40,11 0,1 RET
+
+mel_f3de:
+ENV env_f954 VIB vib_f963 LOOP 2 64,11 57,12 62,12 57,6 60,12 57,6 59,12 60,6 57,6 60,6 62,6 64,6 64,6 57,12 62,12 57,6 60,12 57,6 59,12 60,6 57,6 60,6 62,7 NEXT RET
+
+mel_f416:
+ENV env_f954 VIB vib_f963 LOOP 2 64,11 57,12 63,12 57,6 61,12 61,6 59,12 61,6 57,6 61,6 63,6 64,6 64,6 57,12 63,12 57,6 61,12 61,6 59,12 61,6 57,6 61,6 63,7 NEXT RET
+
+mel_f44e:
+CALL mel_f451
+
+mel_f451:
+VIB vib_f94a ENV env_f9a4 LOOP 4 70,6 NEXT 70,12 68,6 70,10 0,2 68,6 70,10 0,2 70,12 68,12 RET
+
+mel_f46f:
+ENV env_f954 VIB vib_f963 54,35 VIB vib_f99c 54,12 VIB vib_f963 52,24 49,12 47,24 46,12 46,12 CALL mel_f5f4 TR+ -3 CALL mel_f5f4 TR+ 3 ENV env_f954 VIB vib_f963 46,12 47,12 49,12 49,18 49,18 49,12 52,18 49,18 47,12 49,24 VIB vib_f99c 49,48 CALL mel_f5f4 TR+ -3 CALL mel_f5f4 0,1 TR+ 3 RET
+
+mel_f4bf:
+ENV env_f954 VIB vib_f963 50,24 CALL mel_f5f4 ENV env_f954 VIB vib_f963 50,6 50,6 52,18 50,18 48,12 50,24 CALL mel_f5f4 TR+ -5 CALL mel_f5f4 CALL mel_f78c VIB vib_f920 ENV env_f938 TR+ 5 43,12 40,12 RET
+
+mel_f4f4:
+ENV env_f954 VIB vib_f963 52,24 CALL mel_f5f4 ENV env_f954 VIB vib_f963 52,6 52,6 54,18 52,18 50,12 52,18 54,18 56,12 54,18 56,18 57,12 RET
+
+mel_f51c:
+CALL mel_f51f
+
+mel_f51f:
+ENV env_f954 VIB vib_f963 LOOP 2 LOOP 2 48,6 47,12 46,6 45,12 NEXT 48,12 50,12 NEXT RET
+
+mel_f538:
+ENV env_f954 VIB vib_f981 LOOP 4 48,6 47,12 46,6 45,12 NEXT 48,6 47,12 45,6 53,12 52,12 LOOP 2 53,6 52,12 51,6 50,12 NEXT 53,12 52,12 LOOP 2 47,6 46,12 45,6 44,12 NEXT 48,12 47,12 RET
+
+mel_f572:
+ENV env_f954 VIB vib_f963 TR 0 0,5 45,6 45,12 45,12 45,12 45,24 45,30 45,6 52,12 52,12 52,12 52,24 CALL mel_f5f4 0,12 53,24 52,24 53,24 52,12 50,18 47,6 47,12 47,12 47,12 47,24 CALL mel_f5f4 0,12 0,6 48,6 48,12 48,12 48,12 48,24 48,30 48,6 55,12 55,12 55,12 55,24 CALL mel_f5f4 0,12 56,24 55,24 56,24 55,12 53,18 50,6 50,12 50,12 50,12 50,24 ENV env_f938 VIB vib_f920 0,1 45,11 0,1 40,5 0,1 40,6 RET
+
+mel_f5f4:
+ENV env_f938 VIB vib_f920 0,1 43,11 ENV env_f954 VIB vib_f963 RET
+
+mel_f605:
+ENV env_f96e NOISE 31 TYPE 1 LOOP 4 7,6 NOISE+ -2 NEXT TYPE 8 ENV env_f954 VIB vib_f963 45,11 45,12 45,6 45,6 45,12 47,12 48,12 50,6 50,6 50,12 50,12 50,12 50,24 CALL mel_f5f4 50,6 52,6 53,6 53,6 52,12 50,12 48,12 47,12 45,12 44,30 45,6 45,12 45,12 47,12 45,24 CALL mel_f5f4 0,13 RET
+
+mel_f65c:
+TR 7 ENV env_f943 VIB vib_f94a 69,4 0,2 69,4 0,2 57,12 ENV env_f924 VIB vib_f93d 45,11 45,12 46,18 45,18 43,12 43,6 45,6 45,6 45,6 45,12 43,12 45,6 43,6 45,13 ENV env_f943 VIB vib_f94a 64,12 57,12 RET
+
+voice2:
+LOOP 4 CALL mel_f773 NEXT CALL mel_f765 CALL mel_f765 LOOP 6 CALL mel_f773 NEXT CALL mel_f734 CALL mel_f734 TR+ -8 CALL mel_f731 CALL mel_f731 TR+ 1 CALL mel_f731 TR+ 2 CALL mel_f731 TR+ 5 TR -12 LOOP 4 CALL mel_f44e NEXT TR 0 CALL mel_f734 CALL mel_f734 TR -12 CALL mel_f44e CALL mel_f44e TR 0 CALL mel_f734 TR -12 CALL mel_f44e TR 0 LOOP 8 CALL mel_f734 NEXT CALL mel_f731 TR -8 CALL mel_f731 CALL mel_f731 CALL mel_f731 TR -12 CALL mel_f44e TR -1 CALL mel_f3c8 TR 0 CALL mel_f734 CALL mel_f729 TR -7 CALL mel_f734 CALL mel_f729 TR -5 CALL mel_f731 CALL mel_f729 CALL mel_f3c8 TR 0 JUMP voice2
+
+mel_f729:
+TR -12 CALL mel_f451 TR -1 RET
+
+mel_f731:
+CALL mel_f734
+
+mel_f734:
+ENV env_f991 VIB vib_f93d 67,12 69,12 VIB vib_f989 TR+ 12 45,12 45,12 45,36 43,6 43,12 45,6 45,12 45,12 43,12 45,6 43,6 45,12 TR+ -12 VIB vib_f93d 67,12 69,12 RET
+
+mel_f765:
+CALL mel_f770 TR+ 3 CALL mel_f770 TR+ -3 RET
+
+mel_f770:
+CALL mel_f773
+
+mel_f773:
+CALL mel_f78c 52,12 52,12 53,18 52,18 50,12 CALL mel_f78c 52,12 52,12 52,24 0,24 RET
+
+mel_f78c:
+NOISE 10 TYPE 1 ENV env_f96e VIB vib_f930 7,24 TYPE 8 ENV env_f924 RET
+
+voice1:
+CALL mel_f8a5 CALL mel_f8a5 CALL mel_f89a CALL mel_f89a CALL mel_f8bb TR 5 CALL mel_f8bb TR -5 CALL mel_f8bb TR 0 CALL mel_f8bb CALL mel_f8a5 CALL mel_f8a5 CALL mel_f8b8 TR 5 CALL mel_f8b8 TR -3 CALL mel_f88f CALL mel_f88f TR 5 CALL mel_f8b5 TR -5 CALL mel_f8b5 TR 0 LOOP 4 CALL mel_f85a NEXT CALL mel_f8b8 TR 5 CALL mel_f8b8 TR 0 CALL mel_f85a CALL mel_f85a CALL mel_f8bb TR 5 CALL mel_f8bb TR 0 CALL mel_f85a LOOP 4 TR 0 CALL mel_f8b8 TR 5 CALL mel_f8b8 NEXT TR 0 CALL mel_f8b8 TR 5 CALL mel_f8b8 TR 4 CALL mel_f8b8 TR 0 CALL mel_f8b8 TR -3 CALL mel_f8b8 TR 4 CALL mel_f8b8 TR -3 CALL mel_f88f TR 0 CALL mel_f85a 0,96 CALL mel_f8bb TR 5 CALL mel_f8bb CALL mel_f85d TR 5 CALL mel_f8b8 CALL mel_f85d TR -5 CALL mel_f8b5 CALL mel_f85d 0,96 TR 0 JUMP voice1
+
+mel_f85a:
+CALL mel_f85d
+
+mel_f85d:
+TR 0 VIB vib_f920 LOOP 4 CALL mel_f87b NEXT 43,9 0,3 LOOP 6 CALL mel_f87b NEXT 43,9 0,3 39,9 0,3 RET
+
+mel_f87b:
+ENV env_f938 TYPE 1 NOISE 28 7,1 0,1 NOISE 2 7,1 0,3 TYPE 8 RET
+
+mel_f88f:
+CALL mel_f8b8 TR+ 7 CALL mel_f8b8 TR+ -7 RET
+
+mel_f89a:
+CALL mel_f8a5 TR+ 3 CALL mel_f8a5 TR+ -3 RET
+
+mel_f8a5:
+CALL mel_f8b8 TR+ 1 CALL mel_f8bb TR+ -6 CALL mel_f8bb TR+ 5 RET
+
+mel_f8b5:
+CALL mel_f8b8
+
+mel_f8b8:
+CALL mel_f8bb
+
+mel_f8bb:
+ENV env_f8f0 VIB vib_f8f9 21,12 21,6 33,6 CALL mel_f8d6 21,12 21,24 CALL mel_f8d6 31,6 33,6 RET
+
+mel_f8d6:
+ENV env_f904 NOISE 31 TYPE 1 LEG+ LOOP 6 7,1 NOISE+ -16 7,1 NOISE+ 14 NEXT LEG- TYPE 8 ENV env_f8f0 RET
+
+env_f8f0:
+15,1 64 63 12,255 JUMP env_f8f0
+
+vib_f8f9:
+0 0 5 5 3 -3 -5 -5 JUMP vib_f8f9
+
+env_f904:
+15,1 64 59 63 62 59 61 60 59 59 58 59 57 56 59 55 54 59 53 52 59 51 0,255 JUMP env_f904
+
+vib_f920:
+50 JUMP vib_f920
+
+env_f924:
+15,1 64 63 62 61
+
+env_f92a:
+58 11,2 JUMP env_f92a
+
+vib_f930:
+TONE 12 -12 7 -7 JUMP vib_f930
+
+env_f938:
+15,255 JUMP env_f938
+
+vib_f93d:
+TONE 12 -12 JUMP vib_f93d
+
+env_f943:
+15,1 63 58 JUMP env_f943
+
+vib_f94a:
+TONE 5 3 -8 5 7 -12 JUMP vib_f94a
+
+env_f954:
+0,1 15,3 14,4 13,4 12,4 11,255 JUMP env_f954
+
+vib_f963:
+2 1 -1 -2 -2 -1 1 2 JUMP vib_f963
+
+env_f96e:
+15,2 0,4 14,2 0,4 13,3 0,3 12,3 0,3 JUMP env_f96e
+
+vib_f981:
+FREQ 5 TONE 24 -24 JUMP vib_f981
+
+vib_f989:
+TONE 0 12 -12 0 JUMP vib_f989
+
+env_f991:
+14,1 63 62
+
+env_f995:
+11,2 10,2 JUMP env_f995
+
+vib_f99c:
+2 JUMP vib_f99c
+
+vib_f9a0:
+-2 JUMP vib_f9a0
+
+env_f9a4:
+14,1 63 62 61 60 59 JUMP env_f9a4
+-- End at #f9ad
+
