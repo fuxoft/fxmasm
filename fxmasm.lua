@@ -1,7 +1,7 @@
 #!/usr/bin/env luajit
 -- FXM AY file disassembler / assembler
 -- fuka@fuxoft.cz
--- [[[[*<= Version '20190311a' =>*]]]]
+-- [[[[*<= Version '20190311b' =>*]]]]
 
 _G.debug = function(...) print(...) end
 
@@ -448,10 +448,10 @@ local function asm(fname)
 			local two = item.two_bytes
 			local byt1, byt2 = valid_byte(two[1]), valid_byte(two[2])
 			if not byt1 then
-				error_line("Invalid byte 1 of 2 "..byt1, item.line)
+				error_line("Invalid first byte of a pair: "..two[1], item.line)
 			end
 			if not byt2 then
-				error_line("Invalid byte 2 of 2 "..two[2], item.line)
+				error_line("Invalid second byte of a pair: "..two[2], item.line)
 			end
 			add(string.char(byt1))
 			add(string.char(byt2))
