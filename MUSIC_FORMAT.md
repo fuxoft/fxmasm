@@ -35,7 +35,7 @@ Note that the "pairing" of the notes using commas is purely cosmetic. The follow
 
 Each voice data ends either with JUMP back to the beginning of that voice's data. There is no "end of song" marker. If you want the song to end, you have to create an infinite silent loop at the end of each voice's data. Note that sound values (eg transpose, envelope, noise type) are NOT reset when jumping back to the beginning of the voice.
 
-Before playing any notes, both envelope and vibrato for that voice *must* be specified (see ENV and VIB directives below).
+Before playing any notes, both envelope and vibrato for that voice **must** be specified (see ENV and VIB directives below).
 
 ## Voice directives
 
@@ -81,26 +81,26 @@ Sets the noise type to `uint`. Acceptable values are 0 to 31. Note that the nois
 
 Adds the `int` signed integer to the noise type value and then ANDs the result with 31. Used to slide the noise type gradually. For example:
 
-NOISE 0 LOOP 5 30,1 NOISE+ -20 NEXT
+`NOISE 0 LOOP 5 30,2 NOISE+ -20 NEXT`
 
-This produces 5 notes, each of them 1 interrupt long, with noise values 30, 10, 22, 2 and 14 respectively. This can be used for some nifty percussion sounds, especially in conjuction with the LEG+ directive.
+This produces 5 notes, each of them 2 interrupts long, with noise values 30, 10, 22, 2 and 14 respectively. This can be used for some complex percussion sounds, especially in conjuction with the LEG+ directive.
 
-> Note that some of the earlier songs had an error in the playroutine that resulted in ANDing the sum with 15 instead of 31. When playing those old sounds in the current AY player, the noise might sound "wrong".
+> Note that some of the earlier songs had an error in the playroutine that resulted in ANDing the sum with 15 instead of 31. When playing those old songs in the current AY player, the noise might sound "wrong".
 
 ### TYPE uint
 
-Sets the sound type for corresponding voice to `uint`. Valid `uint` values are:
+Sets the sound type for the current voice to `uint`. Valid `uint` values are:
 
 * 8 - Tone (default)
 * 1 - Noise
-* 0 - Tone and noise
+* 0 - Tone and noise concurrently
 * 9 - Silence (of limited practical use)
 
 You should not use any other value than 0, 1, 8 or 9.
 
 ### EXTERNAL_CALL label
 
-Immediately calls native Z80 machine code subroutine at `label`. Used only in Indiana Jones 3 music.
+Immediately calls native Z80 machine code subroutine at `label`. Used only in Indiana Jones 3 music. Of no practical use with `fxmasm`.
 
 ### ENV label
 
@@ -110,13 +110,13 @@ Sets the envelope data for the current voice (explained below).
 
 Sets the vibrato data for the current voice (explained below).
 
-> Both ENV and VIB must be explicitly specified before playing a note in any voice. There are no "default" ENV and VIB values!
+> Both ENV and VIB must be explicitly specified for the current voice before playing the first note. There are no "default" ENV and VIB values!
 
 > ENV and VIB definitions are completely independent of each other and can be shared between multiple voices without problems.
 
 ### LEG+
 
-Sets the legato mode on. The following note will be played as normal but all notes afterwards will not reset the ENV pointer (while the VIB pointer is reset as normal).
+Sets the legato mode on. The following note will be played as normal but all notes afterwards will not reset the ENV pointer at the note start (while the VIB pointer will be reset as normal).
 
 ### LEG-
 
@@ -124,9 +124,9 @@ Sets the legato mode off (default).
 
 ## ENV data format:
 
-The ENV directive defines the volume envelope of the "instrument". It consists of byte pairs in the format `v,l` where `v` is the volume (0 to 15) and `l` is length (in interrupts) for holding this value.
+The ENV directive defines the volume envelope of the "instrument" of the current voice. It consists of byte pairs in the format `v,l` where `v` is the volume (0 to 15) and `l` is length (in interrupts) for holding this value.
 
-The only directive allowe in ENV data is `JUMP label`.
+The only directive allowed in ENV data is `JUMP label`.
 
 Entering a single byte with the value `v` of 50 to 65 has the same effect as entering the byte pair `v-50,1`.
 
@@ -137,7 +137,7 @@ envelope5: 15,5 14,3 63 62 61
 hold10: 10,99 JUMP hold10
 ```
 
-This envelope holds volume 15 for 5 interrupts, volume 14 for 3 interrupts, volume 13 for 1 interrupt, volume 12 for 1 interrupt, volume 11, for 1 interrupt and then hold volume 10 forever (until the note end).
+This envelope holds volume 15 for 5 interrupts, volume 14 for 3 interrupts, volume 13 for 1 interrupt, volume 12 for 1 interrupt, volume 11, for 1 interrupt and then holds volume 10 forever (until the note end).
 
 This is exactly equivalent to the following "long form" data:
 
@@ -146,11 +146,11 @@ envelope5: 15,5 14,3 13,1 12,1 11,1
 hold10: 10,99 JUMP hold10
 ```
 
-> Important note: The very first data in the envelope definition **must be** in the long form (full pair). E.g. `15,1` is correct first pair, `65` is not allowed here and produces unexpected results.
+> Important note: The very first data in the envelope definition **must be** in the long form (full pair). E.g. `15,1` is correct first pair, `65` is not allowed as the first byte and produces unexpected results.
 
 ## VIB data format
 
-The VIB directive specifies the vibrato, i.e. how the note height changes after each interrupt. The VIB data is a sequence of signed bytes that are added to the note frequency after each interrupt. Example:
+The VIB directive specifies the vibrato, i.e. how the note frequency changes after each interrupt. The first interrupt of the note is always played at the original "pure" frequency of this semitone. The VIB data is a sequence of signed bytes that are added to the note frequency after each interrupt. Example:
 
 `vibrato3: 1 -1 0 -2 2 JUMP vibrato3`
 
@@ -166,7 +166,7 @@ Apart from the `JUMP` directive, the following directives are available in the V
 
 ### XOR
 
-XORs the sound type value of the current channel (see the TYPE directive above) with the number 9. That means it changes between 0 and 9 or between 1 and 8. Useful mainly for percussion sounds.
+XORs the sound type value of the current channel (see the `TYPE` directive above) with the number 9. That means it changes between 0 and 9 or between 1 and 8. Useful mainly for percussion sounds and weird sound effects.
 
 ### TONE
 
@@ -174,7 +174,7 @@ Changes the current VIB mode to semitone mode. In this mode, the vibrato bytes a
 
 `majorchord: TONE 4 3 -7 JUMP majorchord`
 
-This VIB definition, when used to play e.g. note 40 (C), produces the notes 40, 44 and 47 in rapid succession, which is the C major chord (C, E, G).
+This VIB definition, when used to play e.g. note 40 (C), produces the notes 40, 44 and 47 in rapid (infinite) succession, which is the C major chord (C, E, G).
 
 In TONE mode, positive values increase the note and negative values decrease the note number (i.e. the opposite of FREQ mode).
 
@@ -182,4 +182,4 @@ In TONE mode, positive values increase the note and negative values decrease the
 
 Changes the current VIB mode from TONE back to the default behavior.
 
-> Note: In the `TONE` mode, each frequency played corresponds to "pure" semitone, regardless of what previous `FREQ` glides happened with the current note. The combinations of `TONE` and `FREQ` in a single VIB definition can be used for some very advanced tricks.
+> Note: In the `TONE` mode, each frequency played corresponds to "pure" semitone, regardless of what previous `FREQ` glides happened with the current note. The combinations of `TONE` and `FREQ` in a single VIB definition can be used for some very advanced tricks (see the spepcific song sources).
