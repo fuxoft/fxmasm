@@ -1,7 +1,7 @@
 FXMasm
 ======
 
-## Disassembler / assembler for Frantisek Fuka's (Fuxoft) AY chip music for 128k ZX Spectrum microcomputer.
+## Disassembler / assembler for Frantisek Fuka's (Fuxoft) AY chip music for ZX Spectrum 128 microcomputer.
 
 In the 1980s, I composed and programmed many music tracks for 128k ZX Spectrum and its AY-3-8910 sound chip. I did this without any music software or MIDI keyboard, inputting the raw music data which was then interpreted using my custom playroutine. This was basically a miniature programming language that allowed for some tricky stuff (e.g. calls, loops, relative transposition of notes) to keep the music data extremely compact (often under 1 kilobyte).
 

@@ -27,7 +27,7 @@ Notes are specified by byte pairs in the format `n,l`, where `n` is a note and `
 
 `40,25 42,25, 44,25 45,25 47,25 49,25 51,25 52,25 0,50`
 
-This plays the C major scale with each note having the length of 0.5 seconds (25 interrupts), followed by one second of silence.
+This plays the C Major scale with each note having the length of 0.5 seconds (25 interrupts), followed by one second of silence.
 
 Note that the "pairing" of the notes using commas is purely cosmetic. The following line has the exactly same effect as the example above and translates to exactly same 18 bytes of data:
 
@@ -174,7 +174,7 @@ Changes the current VIB mode to semitone mode. In this mode, the vibrato bytes a
 
 `majorchord: TONE 4 3 -7 JUMP majorchord`
 
-This VIB definition, when used to play e.g. note 40 (C), produces the notes 40, 44 and 47 in rapid (infinite) succession, which is the C major chord (C, E, G).
+This VIB definition, when used to play e.g. note 40 (C), produces the notes 40, 44 and 47 in rapid (infinite) succession, which is the C Major chord (C, E, G).
 
 In TONE mode, positive values increase the note and negative values decrease the note number (i.e. the opposite of FREQ mode).
 
@@ -182,4 +182,4 @@ In TONE mode, positive values increase the note and negative values decrease the
 
 Changes the current VIB mode from TONE back to the default behavior.
 
-> Note: In the `TONE` mode, each frequency played corresponds to "pure" semitone, regardless of what previous `FREQ` glides happened with the current note. The combinations of `TONE` and `FREQ` in a single VIB definition can be used for some very advanced tricks (see the spepcific song sources).
+> Note: In the `TONE` mode, each frequency played corresponds to "pure" semitone, regardless of what previous `FREQ` glides happened with the current note. The combinations of `TONE` and `FREQ` in a single VIB definition can be used for some very advanced tricks (see the specific song source files).
