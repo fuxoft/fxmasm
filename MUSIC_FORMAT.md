@@ -17,7 +17,7 @@ At the label `melody9`, the song plays note 40 for 10 interrupts and then jumps 
 
 All labels are compiled into 2 byte addresses (LSB, MSB).
 
-The music consists of exactly three voices, each of which is executed in its own "thred" and is independent of the other two voices. These three voices have entry points that correspond to labels `voice1`, `voice2` and `voice3`. These names are hardcoded.
+The music consists of exactly three voices, each of which is executed in its own "thread" and is independent of the other two voices. These three voices have entry points that correspond to labels `voice1`, `voice2` and `voice3`. These names are hardcoded.
 
 All time intervals are specified in interrupts, where one interrupt is equal to 1/50 of one second.
 
@@ -33,9 +33,9 @@ Note that the "pairing" of the notes using commas is purely cosmetic. The follow
 
 `40 25,42 25 44 25 45 25 47 25 49 25 51 25,52 25,0 50`
 
-Each voice data ends either with JUMP back to the beginning of that voice's data. There is no "end of song" marker. If you want the song to end, you have to create an infinite silent loop at the end of each voice's data. Note that sound values (eg transpose, envelope, noise type) are NOT reset when jumping back to the beginning of the voice.
+Each voice data ends with `JUMP` back to the beginning of that voice's data. There is no "end of song" marker. If you want the song to end, you have to create an infinite silent loop at the end of each voice's data. Note that sound values (eg transpose, envelope, noise type) are NOT reset when jumping back to the beginning of the voice.
 
-Before playing any notes, both envelope and vibrato for that voice **must** be specified (see ENV and VIB directives below).
+Important: Before playing any notes, both envelope and vibrato for that voice **must** be explicitly specified (see ENV and VIB directives below), otherwise the playroutine crashes. There is no "default instrument".
 
 ## Voice directives
 
@@ -43,7 +43,7 @@ Apart from notes (explained above), each of the three voices consists of directi
 
 ### JUMP label
 
-Immediately transfers the execution to `label`.
+Immediately transfers the voice execution to `label`.
 
 ### CALL label
 
@@ -63,7 +63,7 @@ Ends the innermost loop.
 
 ### TR int
 
-Sets the transpose value for the current voice to `int` (signed integer). For each subsequent non-zero note in the current voice, this value is added to the note number. At the start of the song, the transpose value is 0.
+Sets the transpose value for the current voice to `int` (signed integer). For each subsequent non-zero note in the current voice, this value is added to the note number. At the start of the song, the transpose value is 0 for all three voices.
 
 ### TR+ int
 
@@ -71,21 +71,21 @@ Adds the signed integer `int` to the current transpose value for the current voi
 
 `LOOP 3 40,50 TR+ 4 NEXT`
 
-Provided that transpose is 0, this plays the notes 40, 44 and 48 (C, E, G#), each for 1 second. After that, the transpose value remains set at 12.
+Provided that initial transpose value is 0, these instructions play the notes 40, 44 and 48 (C, E, G#), each for 1 second. After that, the transpose value remains set at 12.
 
 ### NOISE uint
 
-Sets the noise type to `uint`. Acceptable values are 0 to 31. Note that the noise type is shared by all three voice (this is AY hardware feature, unfortunately).
+Sets the noise type to `uint`. Valid values are 0 to 31. Note that the noise type is shared by all three voices (this is AY hardware feature, unfortunately).
 
 ### NOISE+ int
 
-Adds the `int` signed integer to the noise type value and then ANDs the result with 31. Used to slide the noise type gradually. For example:
+Adds the `int` signed integer to the noise type value and then ANDs the result with 31. Used to slide the noise type gradually or change in specific pattern. For example:
 
-`NOISE 0 LOOP 5 30,2 NOISE+ -20 NEXT`
+`NOISE 30 LOOP 5 30,2 NOISE+ -20 NEXT`
 
 This produces 5 notes, each of them 2 interrupts long, with noise values 30, 10, 22, 2 and 14 respectively. This can be used for some complex percussion sounds, especially in conjuction with the LEG+ directive.
 
-> Note that some of the earlier songs had an error in the playroutine that resulted in ANDing the sum with 15 instead of 31. When playing those old songs in the current AY player, the noise might sound "wrong".
+> Note that some of the earlier songs had an error in the playroutine that resulted in ANDing the sum with 15 instead of 31. When playing those old songs in the current (correct) AY player, the noise might sound "wrong", i.e. different from the original game when the song uses the `NOISE+` directive.
 
 ### TYPE uint
 
@@ -96,7 +96,7 @@ Sets the sound type for the current voice to `uint`. Valid `uint` values are:
 * 0 - Tone and noise concurrently
 * 9 - Silence (of limited practical use)
 
-You should not use any other value than 0, 1, 8 or 9.
+The result of using any other value apart from 0, 1, 8 and 9 is undefined.
 
 ### EXTERNAL_CALL label
 
@@ -110,7 +110,7 @@ Sets the envelope data for the current voice (explained below).
 
 Sets the vibrato data for the current voice (explained below).
 
-> Both ENV and VIB must be explicitly specified for the current voice before playing the first note. There are no "default" ENV and VIB values!
+> Again: Both ENV and VIB must be explicitly specified for the current voice before playing the first note. There are no "default" ENV and VIB values!
 
 > ENV and VIB definitions are completely independent of each other and can be shared between multiple voices without problems.
 
@@ -150,7 +150,7 @@ hold10: 10,99 JUMP hold10
 
 ## VIB data format
 
-The VIB directive specifies the vibrato, i.e. how the note frequency changes after each interrupt. The first interrupt of the note is always played at the original "pure" frequency of this semitone. The VIB data is a sequence of signed bytes that are added to the note frequency after each interrupt. Example:
+The VIB directive specifies the vibrato, i.e. how the note frequency changes after each interrupt. The first interrupt of the note is always played at the original "pure" frequency of its semitone. The VIB data is a sequence of signed bytes that are added to the note frequency after each interrupt. Example:
 
 `vibrato3: 1 -1 0 -2 2 JUMP vibrato3`
 
@@ -160,7 +160,7 @@ Note that the "frequency" value is not actually frequency but period. Consequent
 
 `freqdown: 25 JUMP freqdown`
 
-> Note that the note frequencies increase logarithmically. That means that the same vibrato definitions are much more pronounced with higher notes than with lower notes.
+> Note that the note frequencies increase logarithmically. That means that the same vibrato definitions are much more pronounced with higher notes than with lower notes (twice more pronounced for each additional octave).
 
 Apart from the `JUMP` directive, the following directives are available in the VIB data:
 
@@ -176,10 +176,10 @@ Changes the current VIB mode to semitone mode. In this mode, the vibrato bytes a
 
 This VIB definition, when used to play e.g. note 40 (C), produces the notes 40, 44 and 47 in rapid (infinite) succession, which is the C Major chord (C, E, G).
 
-In TONE mode, positive values increase the note and negative values decrease the note number (i.e. the opposite of FREQ mode).
+In TONE mode, positive values increase the note and negative values decrease the note number (i.e. the opposite of the default `FREQ` mode).
 
 ### FREQ
 
-Changes the current VIB mode from TONE back to the default behavior.
+Changes the current VIB mode from `TONE` back to the default behavior.
 
 > Note: In the `TONE` mode, each frequency played corresponds to "pure" semitone, regardless of what previous `FREQ` glides happened with the current note. The combinations of `TONE` and `FREQ` in a single VIB definition can be used for some very advanced tricks (see the specific song source files).
