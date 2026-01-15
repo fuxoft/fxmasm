@@ -1,0 +1,88 @@
+-- Tetris 2 Main Title
+
+voice1:
+ENV env_ca3f VIB vib_ca37 CALL mel_ca6a 52,80 0,80 LOOP 2 CALL mel_cac2 CALL mel_cac2 CALL mel_ca7d NEXT VIB vib_cd08 ENV env_ccd8 LOOP 3 40,50 40,20 40,10 45,50 44,10 43,10 42,10 NEXT 40,50 40,20 40,10 LOOP 4 47,5 NEXT 45,10 45,5 TR -15 LOOP 15 56,1 TR+ 1 0,2 NEXT LOOP 2 CALL mel_cac2 TR 2 CALL mel_cac2 CALL mel_ca7d TR 0 CALL mel_ca49 NEXT JUMP voice1
+
+vib_ca37:
+2 -2 -5 5 0 JUMP vib_ca37
+
+env_ca3f:
+15,1 64 63 62 61 60 JUMP env_ca3f
+
+mel_ca49:
+VIB vib_cd08 ENV env_ccd8 49,10 49,10 49,20 49,20 49,10 47,20 47,10 47,10 47,5 47,5 45,10 45,10 43,20 RET
+
+mel_ca6a:
+52,20 55,20 59,20 55,20 57,40 55,20 54,20 59,40 57,40 RET
+
+mel_ca7d:
+VIB vib_cb2f ENV env_cb27 TR+ 12 40,80 39,30 40,30 39,20 0,20 39,18 0,2 39,10 37,10 35,10 37,90 40,80 42,20 44,10 42,20 40,30 37,40 45,10 44,10 42,10 44,50 36,5 37,5 38,5 39,5 40,5 41,5 42,5 43,5 TR+ -12 RET
+
+mel_cac2:
+VIB vib_cb2f ENV env_cb27 LOOP 2 56,10 57,10 0,10 54,10 56,10 0,10 52,10 54,10 0,10 51,10 52,10 0,10 49,10 51,10 0,10 47,10 NEXT 49,10 0,70 49,40 52,20 54,10 52,10 0,80 VIB vib_cb20 ENV env_cb3a 64,5 63,5 61,5 59,5 63,5 61,5 59,5 57,5 61,5 59,5 57,5 56,5 59,5 57,5 56,5 54,5 RET
+
+vib_cb20:
+TONE
+
+vib_cb21:
+0 12 -12 JUMP vib_cb21
+
+env_cb27:
+15,1 14,2 13,2 12,0
+
+vib_cb2f:
+1 1 -1 -1 -1 -1 1 1 JUMP vib_cb2f
+
+env_cb3a:
+15,1 64 63 62 11,0
+
+env_cb41:
+15,1 64 63 62 61 60 59 58 57 56 0,0
+
+vib_cb4e:
+TONE 12 -12 JUMP vib_cb4e
+
+voice2:
+0,240 CALL mel_ca49 LOOP 2 CALL mel_cbbd CALL mel_cbbd CALL mel_cba6 NEXT VIB vib_cb4e ENV env_cb41 LOOP 4 0,10 52,10 54,10 52,10 57,20 56,10 52,10 0,10 52,10 54,10 52,10 57,5 57,5 56,10 52,10 54,10 NEXT LOOP 2 CALL mel_cbbd TR 2 CALL mel_cbbd CALL mel_cba6 TR 1 CALL mel_ca49 TR 0 NEXT JUMP voice2
+
+mel_cba6:
+VIB vib_cb2f ENV env_cb27 49,80 47,80 42,140 44,20 49,80 49,80 45,80 48,80 RET
+
+mel_cbbd:
+ENV env_cbdb VIB vib_cbd3 LOOP 8 52,10 52,10 52,10 52,20 52,20 52,10 NEXT RET
+
+vib_cbd3:
+TONE 7 0 -7 0 JUMP vib_cbd3
+
+env_cbdb:
+13,1 64 63 62 61 60 59 58 57 56 55 0,0
+
+env_cc00:
+13,1 61 0,4 JUMP env_cc00
+
+vib_cc08:
+1 1 1 -1 -1 -1 -1 -1 -1 1 1 1 JUMP vib_cc08
+
+voice3:
+VIB vib_cc08 ENV env_cc00 TR -12 CALL mel_ca6a TR 1 CALL mel_ca49 TR 0 LOOP 2 CALL mel_cc92 CALL mel_cc92 CALL mel_cc67 NEXT LOOP 12 CALL mel_ccac NEXT TR 5 CALL mel_cca9 TR 7 CALL mel_cca9 TR 0 LOOP 2 CALL mel_cc92 TR 2 CALL mel_cc92 CALL mel_cc67 TR 0 ENV env_cb27 NOISE 20 TYPE 1 7,40 TYPE 8 0,120 NEXT JUMP voice3
+
+mel_cc67:
+TR+ -3 CALL mel_cca9 TR+ 7 CALL mel_cca9 TR+ 3 CALL mel_cca9 TR+ -5 CALL mel_cca9 TR+ -5 CALL mel_cca9 TR+ 8 CALL mel_cca9 TR+ -3 CALL mel_cca9 TR+ 2 CALL mel_cca9 TR+ -4 RET
+
+mel_cc92:
+LOOP 8 CALL mel_ccac NEXT TR+ 5 LOOP 4 CALL mel_ccac NEXT TR+ -5 LOOP 4 CALL mel_ccac NEXT RET
+
+mel_cca9:
+CALL mel_ccac
+
+mel_ccac:
+ENV env_ccd8 NOISE 9 TYPE 1 7,1 TYPE 8 VIB vib_ccf7 16,9 NOISE 0 TYPE 1 7,1 TYPE 8 28,9 NOISE 20 TYPE 1 LEG+ LOOP 10 7,1 NOISE+ 1 NEXT LEG- TYPE 8 28,10 RET
+
+env_ccd8:
+15,2 14,2 13,2 62 61 60 59 58 57 56 0,0
+
+vib_ccf7:
+-4 -2 2 4 4 2 -2 -4 JUMP vib_ccf7
+
+vib_cd08:
+30 JUMP vib_cd08
