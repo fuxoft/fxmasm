@@ -346,7 +346,7 @@ local function word_to_chars(wrd)
 	return string.char (bit.band(wrd, 0xff)) .. string.char(bit.rshift(wrd, 8))
 end
 
-local function asm(fname)
+local function asm(fname, faddr)
 	local srctxt = load_source(fname)
 	local lines = {}
 	for line in (srctxt.."\n"):gmatch("(.-)\n") do
@@ -385,7 +385,7 @@ local function asm(fname)
 		end
 	end
 
-	local start_addr = 0x8000
+	local start_addr = faddr
 	local addr = start_addr
 	for i, item in ipairs(tokens) do
 		local nline = assert(item.line)
@@ -477,10 +477,17 @@ end
 
 local function main()
 	local fname = assert(arg[1])
+	local faddr
 	if not arg[2] or arg[2] == "0" then
 		disasm(fname)
 	else
-		asm(fname)
+		if not arg[3] then
+		    faddr = 0xC842 --song A
+		else
+		    faddr = tonumber(assert(arg[3]))
+		    faddr = faddr + 6
+		end
+		asm(fname,faddr)
 	end
 end
 
