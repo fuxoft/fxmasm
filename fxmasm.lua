@@ -1,7 +1,7 @@
 #!/usr/bin/env luajit
 -- FXM AY file disassembler / assembler
 -- fuka@fuxoft.cz
--- [[[[*<= Version '20190311b' =>*]]]]
+-- [[[[*<= Version '2.1.8+D20260115T224847' =>*]]]]
 
 _G.debug = function(...) print(...) end
 
@@ -325,7 +325,7 @@ end
 
 local function load_source(filename)
 	assert(#filename > 0)
-	local fd = assert(io.open(filename))
+	local fd = assert(io.open(filename), "Cannot open .fxmasm source file: "..filename)
 	local str = assert(fd:read("*a"))
 	fd:close()
 	return str
@@ -346,8 +346,9 @@ local function word_to_chars(wrd)
 	return string.char (bit.band(wrd, 0xff)) .. string.char(bit.rshift(wrd, 8))
 end
 
-local function asm(fname)
-	local srctxt = load_source(fname)
+local function asm(args)
+	local in_fname = assert(args.input_filename)
+	local srctxt = load_source(in_fname)
 	local lines = {}
 	for line in (srctxt.."\n"):gmatch("(.-)\n") do
 		table.insert(lines, line)
@@ -385,7 +386,12 @@ local function asm(fname)
 		end
 	end
 
-	local start_addr = 0x8000
+	-- start_addr is the address of the actual music data. The datablock (three doublebyte voice pointers)
+	-- is right before it, at address start_addr - 6
+	local start_addr = 0x8006
+	if args.raw then
+		start_addr = assert(args.address) + 6
+	end
 	local addr = start_addr
 	for i, item in ipairs(tokens) do
 		local nline = assert(item.line)
@@ -424,7 +430,11 @@ local function asm(fname)
 		end
 	end
 
+
 	local result = {"FXSM", word_to_chars(start_addr - 6)}
+	if args.raw then
+		result = {}
+	end
 
 	local function add(str)
 		table.insert(result, str)
@@ -464,11 +474,12 @@ local function asm(fname)
 			add(word_to_chars(a))
 		end
 	end
+	local fname = assert(args.output_filename, "Missing output filename (argument 3).")
 	print("Compiled OK")
-	print("Base address: #"..hexword(start_addr))
+	print("Datablock (3 voice pointers) starts at: 0x"..hexword(start_addr-6))
+	print("Actual music data starts at: 0x"..hexword(start_addr))
 	local str = table.concat(result)
 	print("File size: "..#str.." bytes")
-	local fname = assert(arg[2], "Missing output filename (argument 2)")
 	local fd = assert(io.open(fname, "w"))
 	fd:write(str)
 	fd:close()
@@ -476,11 +487,20 @@ local function asm(fname)
 end
 
 local function main()
-	local fname = assert(arg[1])
-	if not arg[2] or arg[2] == "0" then
-		disasm(fname)
+
+	local directive = assert(arg[1], "No directive provided. Accepted values: decompile, compile, compile_raw")
+	local fname = assert(arg[2], "No filename (argument 2) provided.")
+	local outfname = arg[3]
+	if directive == "decompile" then
+		disasm (fname)
+	elseif directive == "compile" then
+		asm{raw = false, address = 0x8000, input_filename = fname, output_filename = outfname}
+	elseif directive == "compile_raw" then
+		local address = assert(arg[4], "No raw compilation address provided (argument 4).")
+		address = assert(tonumber(address), "Invalid compilation address: "..address)
+		asm{raw = true, address = address, input_filename = fname, output_filename = outfname}
 	else
-		asm(fname)
+		error("Invalid directive: "..directive)
 	end
 end
 

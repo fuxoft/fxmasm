@@ -9,6 +9,7 @@ local function main()
 		os.exit()
 	end
 	print("Playing...")
+	-- Change the path below to point to your AY Emul binary
 	os.execute("~/bin/ayemul/Ay_Emul "..tmpfname)
 end
 
