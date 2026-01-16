@@ -1,0 +1,119 @@
+-- Rendez Vous IV
+-- Inspired by Jarre song of the same name
+
+voice1:
+ENV env_0x994c VIB vib_0x9c9e 0,0 LOOP 4 48,8 48,8 60,8 48,8 0,8 48,8 60,8 48,8 NEXT CALL mel_0x9959 CALL mel_0x999c CALL mel_0x9959 CALL mel_0x999c CALL mel_0x9959 CALL mel_0x99a8 CALL mel_0x9a16 CALL mel_0x9a16 CALL mel_0x9a16 CALL mel_0x9959 CALL mel_0x999c CALL mel_0x9959 CALL mel_0x99a8 CALL mel_0x9a16 CALL mel_0x9a16 CALL mel_0x9a16 JUMP voice1
+
+env_0x994c:
+14,1 63 62 61 60 59 58 0,255 JUMP env_0x994c
+
+mel_0x9959:
+ENV env_0x9c8d VIB vib_0x9c9e 43,24 48,8 52,24 43,8 53,16 52,8 43,32 48,8 53,16 52,8 43,32 52,7 0,1 52,24 50,104 43,24 48,8 52,24 43,8 53,16 52,8 43,32 48,8 53,16 52,8 43,32 52,7 0,1 52,24 50,72 RET
+
+mel_0x999c:
+0,24 LOOP 4 43,8 48,120 NEXT 0,8 RET
+
+mel_0x99a8:
+47,8 48,8 47,8 48,8 45,32 47,8 48,8 47,8 48,8 45,32 47,8 48,8 47,8 48,8 53,16 52,16 50,8 48,16 47,72 ENV env_0x9cc5 19,32 35,64 41,96 VIB vib_0x9cbf ENV env_0x9cd0 48,64 RET
+
+env_0x99e0:
+15,5 14,9 13,19 12,25 11,255 JUMP env_0x99e0
+
+vib_0x99ed:
+TONE 12 0 -12 FREQ 0 3 2 -2 -3 JUMP vib_0x99ed
+
+env_0x99fa:
+13,20 12,20 11,20 10,255 JUMP env_0x99fa
+
+vib_0x9a05:
+1 -1 0 JUMP vib_0x9a05
+
+mel_0x9a0b:
+ENV env_0x99fa VIB vib_0x9a05 TR 12 JUMP mel_0x9a1c
+
+mel_0x9a16:
+ENV env_0x99e0 VIB vib_0x99ed
+
+mel_0x9a1c:
+LOOP 3 48,80 50,8 52,8 53,8 52,8 50,8 52,8 NEXT 48,72 ENV env_0x9cb2 VIB vib_0x9cab LOOP 7 48,8 NEXT TR 0 RET
+
+voice2:
+ENV env_0x9cb2 VIB vib_0x9cab LOOP 16 36,8 36,16 36,8 NEXT CALL mel_0x9a7f CALL mel_0x9ae2 CALL mel_0x9a95 CALL mel_0x9ae2 CALL mel_0x9a95 CALL mel_0x9afe CALL mel_0x9a0b CALL mel_0x9b41 CALL mel_0x9b41 CALL mel_0x9a95 CALL mel_0x9ae2 CALL mel_0x9a95 CALL mel_0x9afe CALL mel_0x9a0b CALL mel_0x9b41 CALL mel_0x9b41 JUMP voice2
+
+mel_0x9a7f:
+ENV env_0x9cb2 VIB vib_0x9cab TYPE 0 NOISE 0 LOOP 80 7,1 0,7 NOISE+ -9 NEXT TYPE 8 RET
+
+mel_0x9a95:
+ENV env_0x9cb2 VIB vib_0x9cab LOOP 2 0,8 64,8 65,8 67,8 64,8 60,16 60,16 64,8 65,8 67,8 64,8 60,24 0,8 64,8 65,8 67,8 64,8 60,16 64,8 64,8 64,8 0,8 62,16 62,8 0,16 43,8 43,8 43,8 43,8 LOOP 32 31,1 TR+ 1 NEXT TR 0 NEXT RET
+
+mel_0x9ae2:
+LOOP 2 LOOP 6 41,8 NEXT 0,8 LOOP 9 53,8 NEXT LOOP 6 36,8 NEXT 0,8 LOOP 9 48,8 NEXT NEXT RET
+
+mel_0x9afe:
+VIB vib_0x9b8e ENV env_0x9c67 69,8 72,8 76,8 81,8 84,32 69,8 72,8 77,8 81,8 84,32 62,8 65,8 69,8 74,8 77,8 81,24 62,8 64,8 68,8 71,8 74,8 76,8 80,8 83,8 ENV env_0x9cc5 VIB vib_0x9c9e 31,64 38,64 43,128 RET
+
+mel_0x9b41:
+LOOP 4 CALL mel_0x9b63 CALL mel_0x9b63 77,8 77,8 76,8 72,16 77,8 CALL mel_0x9b63 77,16 76,16 74,8 76,8 CALL mel_0x9b63 NEXT RET
+
+mel_0x9b63:
+ENV env_0x9cb2 TYPE 1 LEG+ LOOP 3 NOISE 7 7,1 NOISE 19 7,1 NEXT TYPE 8 LEG- ENV env_0x9b80 VIB vib_0x9b8e 0,2 RET
+
+env_0x9b80:
+15,1 64 63 62 61 60 59 58 0,255 JUMP env_0x9b80
+
+vib_0x9b8e:
+TONE -12 12 JUMP vib_0x9b8e
+
+voice3:
+TR 0 LOOP 8 CALL mel_0x9c23 NEXT CALL mel_0x9bcf CALL mel_0x9be0 CALL mel_0x9bcf CALL mel_0x9be0 CALL mel_0x9bcf CALL mel_0x9bee CALL mel_0x9c0b CALL mel_0x9c0b CALL mel_0x9c0b CALL mel_0x9bcf CALL mel_0x9be0 CALL mel_0x9bcf CALL mel_0x9bee CALL mel_0x9c0b CALL mel_0x9c0b CALL mel_0x9c0b JUMP voice3
+
+mel_0x9bcf:
+LOOP 2 TR 0 CALL mel_0x9c23 CALL mel_0x9c20 TR -5 CALL mel_0x9c20 NEXT RET
+
+mel_0x9be0:
+LOOP 2 TR -7 CALL mel_0x9c20 TR -12 CALL mel_0x9c20 NEXT RET
+
+mel_0x9bee:
+TR -3 CALL mel_0x9c23 TR -7 CALL mel_0x9c23 TR -10 CALL mel_0x9c23 TR -8 CALL mel_0x9c23 TR -5 LOOP 4 CALL mel_0x9c23 NEXT RET
+
+mel_0x9c0b:
+TR 0 CALL mel_0x9c20 TR -3 CALL mel_0x9c20 TR -7 CALL mel_0x9c20 TR 0 CALL mel_0x9c20 RET
+
+mel_0x9c20:
+CALL mel_0x9c23
+
+mel_0x9c23:
+VIB vib_0x9c72 ENV env_0x9c67 24,5 0,3 24,8 NOISE 6 TYPE 1 7,1 TYPE 8 33,1 34,1 35,1 36,4 24,5 0,3 24,8 33,1 34,1 35,1 36,5 ENV env_0x9c7d TYPE 1 LEG+ LOOP 4 NOISE 0 7,1 NOISE 31 7,1 NEXT LEG- ENV env_0x9c67 TYPE 8 36,8 RET
+
+env_0x9c67:
+14,2 13,2 12,2 11,255 JUMP env_0x9c67
+
+vib_0x9c72:
+-5 -5 5 5 5 5 -5 -5 JUMP vib_0x9c72
+
+env_0x9c7d:
+15,2 14,2 63 62 61 60 59 58 57 0,255 JUMP env_0x9c7d
+
+env_0x9c8d:
+15,2 14,2 13,2 12,9 11,30 10,30 9,255 JUMP env_0x9c8d
+
+vib_0x9c9e:
+TONE 12 -12 FREQ 1 1 -1 -1 -1 1 JUMP vib_0x9c9e
+
+vib_0x9cab:
+TONE 7 5 -12 JUMP vib_0x9cab
+
+env_0x9cb2:
+14,1 13,1 62 61 60 9,255 JUMP env_0x9cb2
+
+vib_0x9cbf:
+127 64
+
+vib_0x9cc1:
+-3 JUMP vib_0x9cc1
+
+env_0x9cc5:
+15,5 14,6 13,7 12,255 JUMP env_0x9cc5
+
+env_0x9cd0:
+0,2 14,255 JUMP env_0x9cd0

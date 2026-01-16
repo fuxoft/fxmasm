@@ -4,13 +4,13 @@
 local function main()
 	local fname = assert(arg[1], "Missing file name")
 	local tmpfname = "/tmp/fxmasm_temp_file.fxm"
-	local code = os.execute("./fxmasm.lua "..fname.." "..tmpfname)
+	local code = os.execute("./fxmasm.lua compile "..fname.." "..tmpfname)
 	if code ~= 0 then
 		os.exit()
 	end
 	print("Playing...")
 	-- Change the path below to point to your AY Emul binary
-	os.execute("~/bin/ayemul/Ay_Emul "..tmpfname)
+	os.execute("~/bin/AY_Emul/Ay_Emul "..tmpfname)
 end
 
 main()

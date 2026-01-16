@@ -1,0 +1,77 @@
+-- Atomix
+-- Original music for Raxoft game
+
+voice1:
+ENV env_0xc3f6 VIB vib_0xc3fc CALL mel_0xc42c CALL mel_0xc42c TR 2 CALL mel_0xc42c CALL mel_0xc49a TR 0 CALL mel_0xc375 CALL mel_0xc375 JUMP voice1
+
+mel_0xc375:
+VIB vib_0xc423 ENV env_0xc419 69,20 68,10 69,60 66,10 68,10 69,10 71,10 69,10 68,10 69,10 66,160 69,20 68,10 69,60 66,10 68,10 69,10 71,10 69,10 68,10 69,10 71,160 73,20 71,10 73,60 69,10 71,10 73,10 74,10 73,10 71,10 69,10 71,20 69,10 71,60 67,10 69,10 71,10 72,10 71,10 72,10 74,10 75,40 70,20 68,5 70,5 68,5 70,5 67,30 68,10 70,40 71,40 66,20 64,5 66,5 64,5 66,5 63,20 66,20 70,20 71,20 RET
+
+env_0xc3f6:
+10,1 59 58 7,0
+
+vib_0xc3fc:
+TONE
+
+vib_0xc3fd:
+12 -12 JUMP vib_0xc3fd
+
+env_0xc402:
+13,1 62 61 60 9,0
+
+vib_0xc409:
+0 0 0 2 2 1 -2 -1 -2 -1 -2 1 2 JUMP vib_0xc409
+
+env_0xc419:
+11,1 60 59 8,60 7,6 5,0
+
+vib_0xc423:
+TONE
+
+vib_0xc424:
+-12 0 0 0 12 JUMP vib_0xc424
+
+mel_0xc42c:
+49,5 51,5 52,5 0,5 52,5 0,5 49,5 51,5 52,5 0,5 49,5 0,5 54,5 52,5 51,5 0,5 52,5 51,5 49,5 0,5 49,10 51,5 0,5 52,5 0,5 51,25 0,5 RET
+
+mel_0xc463:
+45,5 47,5 49,5 0,5 49,5 0,5 45,5 47,5 49,5 0,5 45,5 0,5 51,5 49,5 47,5 0,5 49,5 47,5 45,5 0,5 45,10 47,5 0,5 49,5 0,5 47,25 0,5 RET
+
+mel_0xc49a:
+49,5 51,5 52,5 0,5 52,5 0,5 49,5 51,5 52,5 0,5 49,5 0,5 54,5 52,5 51,5 0,5 49,5 51,5 52,5 0,5 52,5 0,5 49,5 51,5 52,5 0,5 49,5 0,5 51,5 52,5 54,5 0,5 RET
+
+mel_0xc4db:
+45,5 47,5 49,5 0,5 49,5 0,5 45,5 47,5 49,5 0,5 45,5 0,5 51,5 49,5 47,5 0,5 45,5 47,5 49,5 0,5 49,5 0,5 45,5 47,5 49,5 0,5 45,5 0,5 47,5 49,5 51,5 0,5 RET
+
+voice2:
+ENV env_0xc3f6 VIB vib_0xc3fc CALL mel_0xc463 CALL mel_0xc463 TR 2 CALL mel_0xc463 CALL mel_0xc4db TR 0 CALL mel_0xc53b CALL mel_0xc53b JUMP voice2
+
+mel_0xc53b:
+TR+ 2 CALL mel_0xc566 TR+ -7 CALL mel_0xc587 TR+ 7 CALL mel_0xc566 TR+ -2 CALL mel_0xc587 TR+ 5 CALL mel_0xc587 TR+ -2 CALL mel_0xc587 TR+ -4 CALL mel_0xc587 TR+ -4 CALL mel_0xc587 TR 0 RET
+
+mel_0xc566:
+ENV env_0xc5a8 VIB vib_0xc5b0 LOOP 4 28,10 40,5 28,5 LEG+ LOOP 3 40,1 35,1 31,1 NEXT LEG- 0,1 28,5 40,5 NEXT RET
+
+mel_0xc587:
+ENV env_0xc5a8 VIB vib_0xc5b0 LOOP 4 28,10 40,5 28,5 LEG+ LOOP 3 40,1 35,1 32,1 NEXT LEG- 0,1 28,5 40,5 NEXT RET
+
+env_0xc5a8:
+12,1 61 60 59 58 7,0
+
+vib_0xc5b0:
+2 2 -2 -2 -2 -2 2 2 JUMP vib_0xc5b0
+
+voice3:
+ENV env_0xc402 VIB vib_0xc409 0,160 LOOP 3 21,3 25,3 27,3 28,3 32,3 33,45 35,20 33,60 23,20 TR 2 NEXT TR 0 CALL mel_0xc5fd CALL mel_0xc5fd TR 5 CALL mel_0xc587 CALL mel_0xc587 TR 7 CALL mel_0xc587 CALL mel_0xc587 TR 0 CALL mel_0xc5fd CALL mel_0xc5fd JUMP voice3
+
+mel_0xc5fd:
+ENV env_0xc3f6 VIB vib_0xc3fc 52,160 TR 2 CALL mel_0xc42c 50,160 TR -5 CALL mel_0xc42c ENV env_0xc63b TR 0 LOOP 16 57,10 NEXT LOOP 16 55,10 NEXT LOOP 16 51,10 NEXT LOOP 8 47,10 NEXT VIB vib_0xc633 ENV env_0xc646 47,80 RET
+
+vib_0xc633:
+TONE 1 FREQ -19 49 JUMP vib_0xc633
+
+env_0xc63b:
+11,1 60 59 58 57 56 55 54 3,0
+
+env_0xc646:
+9,0 JUMP env_0xc646

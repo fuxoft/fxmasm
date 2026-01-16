@@ -1,0 +1,103 @@
+-- Star Dragon
+-- Title music for the Raxoft game.
+
+voice1:
+VIB vib_0xc840 ENV env_0xc5a5 16,0 16,206 LOOP 25 17,2 TR+ 2 NEXT TR 0 LOOP 2 CALL mel_0xc57b CALL mel_0xc57b CALL mel_0xc605 CALL mel_0xc605 ENV env_0xc566 VIB vib_0xc570 43,128 38,128 39,128 40,128 45,128 41,128 40,128 43,64 LOOP 16 47,4 TR+ 1 NEXT TR 0 CALL mel_0xc6a1 CALL mel_0xc57b TR 2 CALL mel_0xc57b TR 4 CALL mel_0xc605 CALL mel_0xc57b TR -12 CALL mel_0xc6a1 TR 0 CALL mel_0xc6a1 NEXT TR -12 CALL mel_0xc605 CALL mel_0xc605 TR 0 JUMP voice1
+
+env_0xc566:
+13,1 62 61 60 9,0 JUMP env_0xc566
+
+vib_0xc570:
+2 2 -2 -2 -2 -2 2 2 JUMP vib_0xc570
+
+mel_0xc57b:
+VIB vib_0xc58f ENV env_0xc596 LOOP 2 68,24 64,72 69,16 68,8 64,136 NEXT RET
+
+vib_0xc58f:
+TONE 0 12 -12 JUMP vib_0xc58f
+
+env_0xc596:
+15,1 0,7 13,1 0,7 11,1 0,7 JUMP env_0xc596
+
+env_0xc5a5:
+11,0 JUMP env_0xc5a5
+
+voice2:
+ENV env_0xc5a5 VIB vib_0xc840 4,128 LOOP 10 40,2 0,6 28,2 0,6 28,14 0,2 NEXT NOISE 31 TYPE 1 LOOP 32 44,2 NOISE+ -1 NEXT TYPE 8 LOOP 2 LOOP 4 CALL mel_0xc713 NEXT VIB vib_0xc649 CALL mel_0xc653 CALL mel_0xc650 CALL mel_0xc713 TR 2 CALL mel_0xc713 TR 4 CALL mel_0xc713 CALL mel_0xc713 TR 0 CALL mel_0xc650 CALL mel_0xc650 NEXT TR -9 CALL mel_0xc605 CALL mel_0xc605 TR 0 JUMP voice2
+
+mel_0xc605:
+VIB vib_0xc708 ENV env_0xc711 68,16 66,8 64,72 68,11 66,11 64,10 71,20 70,4 69,4 68,64 0,4 68,11 66,11 64,10 76,20 75,4 74,4 73,4 72,4 71,56 0,4 71,11 69,11 68,10 64,96 LOOP 16 64,1 76,1 TR+ -1 NEXT TR+ 16 RET
+
+vib_0xc649:
+TONE 0 -12 12 JUMP vib_0xc649
+
+mel_0xc650:
+VIB vib_0xc708
+
+mel_0xc653:
+ENV env_0xc711 67,24 69,8 71,56 69,8 72,24 71,4 0,4 71,32 69,92 0,4 69,24 71,8 72,48 71,16 69,24 71,8 67,112 0,16 72,24 74,8 76,48 74,16 72,24 76,4 0,4 76,32 69,64 74,24 72,8 71,32 74,48 67,8 69,8 71,16 67,16 71,112 0,16 RET
+
+mel_0xc6a1:
+ENV env_0xc566 VIB vib_0xc570 59,8 57,8 55,80 59,8 57,16 55,8 57,8 54,8 50,80 57,8 54,16 50,8 57,8 59,8 60,8 59,8 57,48 54,16 55,24 57,8 59,40 57,8 59,8 57,8 55,40 54,8 55,8 54,8 52,48 54,16 55,40 57,8 59,8 60,8 57,8 55,8 57,64 55,16 57,16 59,16 59,8 57,8 59,64 55,16 57,16 59,16 62,64 63,64 RET
+
+vib_0xc708:
+0 0 0 0 0 0 JUMP vib_0xc74b
+
+env_0xc711:
+11,0
+
+mel_0xc713:
+ENV env_0xc745 VIB vib_0xc74b LOOP 3 52,8 54,8 56,24 52,8 54,4 0,4 56,4 0,4 57,16 56,8 54,24 56,16 NEXT 52,72 62,8 59,4 0,4 57,4 0,4 55,16 54,16 RET
+
+env_0xc745:
+12,1 58 JUMP env_0xc745
+
+vib_0xc74b:
+0 0 0 0 0 0
+
+vib_0xc751:
+1 1 1 -1 -1 -1 -1 -1 -1 1 1 1 JUMP vib_0xc751
+
+env_0xc760:
+14,6 13,6 12,6 11,6 10,6 11,6 12,6 13,6 JUMP env_0xc760
+
+vib_0xc773:
+6 6 6 6 6 6 6 6 -9 -9 -9 -9 -9 -9 -9 -9 -9 JUMP vib_0xc773
+
+voice3:
+VIB vib_0xc773 ENV env_0xc760 0,0 30,0 LOOP 2 LOOP 4 CALL mel_0xc7f5 NEXT CALL mel_0xc7c5 CALL mel_0xc7c5 CALL mel_0xc7f5 TR 2 CALL mel_0xc7f5 TR 4 CALL mel_0xc7f5 CALL mel_0xc7f5 TR 0 CALL mel_0xc7c5 CALL mel_0xc7c5 NEXT TR -16 CALL mel_0xc605 CALL mel_0xc605 TR 0 JUMP voice3
+
+mel_0xc7c5:
+TR+ 3 CALL mel_0xc80a TR+ -5 CALL mel_0xc80a TR+ 1 CALL mel_0xc80a TR+ 1 CALL mel_0xc80a TR+ 5 CALL mel_0xc80a TR+ -4 CALL mel_0xc80a TR+ -1 CALL mel_0xc80a TR+ 3 CALL mel_0xc80d TR+ 4 CALL mel_0xc80d TR+ -7 RET
+
+mel_0xc7f5:
+CALL mel_0xc80a TR+ -2 CALL mel_0xc80a TR+ -1 CALL mel_0xc80a TR+ -1 CALL mel_0xc80a TR+ 4 RET
+
+mel_0xc80a:
+CALL mel_0xc80d
+
+mel_0xc80d:
+ENV env_0xc849 NOISE 3 TYPE 1 44,1 VIB vib_0xc840 TYPE 8 28,15 VIB vib_0xc84b ENV env_0xc854 23,8 TYPE 1 44,1 TYPE 8 28,7 CALL mel_0xc86c ENV env_0xc854 28,8 23,8 VIB vib_0xc85c ENV env_0xc860 28,8 RET
+
+vib_0xc840:
+6 3 -3 -6 -7 7 JUMP vib_0xc840
+
+env_0xc849:
+14,0
+
+vib_0xc84b:
+2 2 -2 72 -2 2 JUMP vib_0xc84b
+
+env_0xc854:
+15,1 64 63 62 61 10,0
+
+vib_0xc85c:
+50 JUMP vib_0xc85c
+
+env_0xc860:
+15,1 64 63 62 61 59 57 55 53 0,0
+
+mel_0xc86c:
+ENV env_0xc860 LEG+ TYPE 1 LOOP 2 NOISE 31 22,2 NOISE 0 22,2 NEXT LEG- TYPE 8 RET
+
+

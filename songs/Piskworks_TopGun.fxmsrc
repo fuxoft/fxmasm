@@ -1,0 +1,62 @@
+-- Piskworks / Top Gun
+-- Unfinished test of the early playroutine. Sligtly inspired by the song from the Top Gun game intro on Commodore 64. Used in the game Piskworks by Raxoft.
+
+voice1:
+0,0 0,0 0,0 ENV env_0xca62 VIB vib_0xca6b LOOP 2 CALL mel_0xc8ec NEXT VIB vib_0xca41 ENV env_0xca76 LEG+ 44,0 44,128 LEG- LOOP 2 CALL mel_0xc8ba NEXT VIB vib_0xcaa0 CALL mel_0xc8ec CALL mel_0xc8ec TR 0 VIB vib_0xca6b LOOP 4 TR+ 3 CALL mel_0xc8ec NEXT TR 0 ENV env_0xca76 LEG+ 44,0 44,128 LEG- VIB vib_0xca41 ENV env_0xca62 LOOP 2 CALL mel_0xc88f NEXT JUMP voice1
+
+mel_0xc88f:
+TR+ -12 56,23 54,12 51,12 56,24 56,12 58,12 59,24 61,24 58,24 54,24 56,24 56,12 58,12 59,24 59,12 61,12 63,24 66,24 61,49 TR+ 12 RET
+
+mel_0xc8ba:
+ENV env_0xca62 VIB vib_0xca99 32,48 VIB vib_0xca6b TR+ -12 68,12 71,12 73,12 75,12 73,24 71,24 68,24 66,24 56,72 61,12 63,12 61,12 59,12 61,12 63,12 66,24 65,24 TR+ 12 RET
+
+mel_0xc8ec:
+44,5 0,6 44,6 0,6 42,6 0,6 44,24 39,6 0,6 44,6 0,6 46,6 0,6 47,12 49,6 0,6 47,6 0,6 46,6 0,6 47,12 46,6 0,6 44,6 0,6 42,6 0,6 44,6 0,6 44,6 0,6 42,6 0,6 44,24 39,6 0,6 47,6 0,6 49,6 0,6 51,12 49,6 0,6 47,6 0,6 44,6 0,6 42,12 39,6 0,6 37,6 39,6 37,6 35,7 RET
+
+voice2:
+0,0 0,128 VIB vib_0xca5e ENV env_0xca4c LOOP 6 CALL mel_0xc9a9 NEXT ENV env_0xca4c VIB vib_0xca57 LOOP 6 CALL mel_0xc9a9 NEXT LOOP 36 CALL mel_0xc97e NEXT JUMP voice2
+
+mel_0xc97e:
+NOISE 1 TYPE 1 ENV env_0xca4c 7,12 7,6 7,6 NOISE 15 ENV env_0xca2c 7,12 NOISE 1 ENV env_0xca4c 7,12 7,12 7,6 7,6 NOISE 15 ENV env_0xca2c 7,24 TYPE 8 RET
+
+mel_0xc9a9:
+LOOP 2 44,12 56,6 56,6 44,12 56,12 NEXT 47,12 59,6 59,6 47,12 59,12 49,12 61,6 61,6 49,12 61,12 RET
+
+voice3:
+ENV env_0xca2c VIB vib_0xca41 LOOP 9 CALL mel_0xc9fa NEXT VIB vib_0xcaa0 TR -24 LOOP 4 TR+ 3 CALL mel_0xc9a9 CALL mel_0xc9a9 NEXT TR 0 ENV env_0xca2c VIB vib_0xca41 LOOP 3 CALL mel_0xc9fa NEXT TR 0 JUMP voice3
+
+mel_0xc9fa:
+CALL mel_0xca1f CALL mel_0xca1f TR+ 3 CALL mel_0xca1f TR+ -5 CALL mel_0xca1f TR+ 2 CALL mel_0xca1f CALL mel_0xca1f TR+ 3 CALL mel_0xca1f TR+ 2 CALL mel_0xca1f TR+ -5 RET
+
+mel_0xca1f:
+20,12 20,6 20,6 30,6 32,6 20,12 RET
+
+env_0xca2c:
+15,1 14,1 13,1 12,1 11,1 10,1 9,1 8,4 0,222 JUMP env_0xca2c
+
+vib_0xca41:
+5 5 -5 -5 -5 -5 5 5 JUMP vib_0xca41
+
+env_0xca4c:
+15,1 13,1 11,1 0,222 JUMP env_0xca4c
+
+vib_0xca57:
+TONE 7 5 -12 JUMP vib_0xca57
+
+vib_0xca5e:
+0 JUMP vib_0xca5e
+
+env_0xca62:
+0,1 15,255 JUMP env_0xca62
+
+vib_0xca6b:
+-2 -1 1 2 2 1 -1 -2 JUMP vib_0xca6b
+
+env_0xca76:
+15,99 14,19 13,19 12,19 11,19 10,19 9,19 8,9 7,9 6,9 5,9 4,9 3,9 2,9 1,9 0,255 JUMP env_0xca76
+
+vib_0xca99:
+FREQ -6 TONE 1 JUMP vib_0xca99
+
+vib_0xcaa0:
+TONE 12 12 -24 JUMP vib_0xcaa0

@@ -5,9 +5,8 @@
 
 _G.debug = function(...) print(...) end
 
-if arg[3] ~= "debug" then
-	_G.debug = function() end
-end
+-- Comment out the following line to show debug info
+_G.debug = function() end
 
 local opcodes = {
 	[0x80] = {"JUMP", 3},
@@ -33,31 +32,14 @@ local vibrato_opcodes = {
 	[0x84] = "XOR",
 }
 
-local function valid_address(addr)
-	local real = addr - OFFSET + 7
-	return (real >= 1 and real <= #FILE)
-end
-
-local function peek(addr)
-	local off = OFFSET or 6
-	local real = addr - off + 7
-	assert(real >= 1 and real <= #FILE)
-	local byte = assert(FILE:byte(real,real))
-	return byte
-end
-
-local function dpeek(addr)
-	return peek(addr) + 256*peek(addr+1)
-end
-
 local function hexword(num)
 	assert(num >=0 and num <= 65535)
-	return string.format("%04x", num)
+	return string.format("0x%04x", num)
 end
 
 local function hexbyte(num)
 	assert(num >=0 and num <= 255)
-	return string.format("%02x", num)
+	return string.format("0x%02x", num)
 end
 
 local function signedbyte(num)
@@ -66,6 +48,25 @@ local function signedbyte(num)
 		num = num - 256
 	end
 	return tostring(num)
+end
+
+local function valid_address(addr)
+	local real = addr - OFFSET + 7
+	return (real >= 1 and real <= #FILE)
+end
+
+local function peek(addr)
+	local off = OFFSET or 6
+	local real = addr - off + 7
+	if not (real >= 1 and real <= #FILE) then
+		error ("Attempt to peek from invalid address "..hexword(addr))
+	end
+	local byte = assert(FILE:byte(real,real))
+	return byte
+end
+
+local function dpeek(addr)
+	return peek(addr) + 256*peek(addr+1)
 end
 
 local function load_song(filename)

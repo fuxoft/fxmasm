@@ -1,0 +1,39 @@
+-- Star Dragon - Hall of Fame
+-- Highscore music for the game Star Dragon by Raxoft
+-- Note that this song is very short but AY Player is unable to detect its end and plays it looped infinitely (because of the echo trick in voice 2).
+
+voice1:
+ENV env_0xc8c8 VIB vib_0xc8dd LOOP 2 68,60 61,50 68,10 66,120 68,60 61,50 68,10 70,120 NEXT LOOP 2 69,60 65,50 64,10 62,120 69,60 66,50 69,10 73,90 69,20 69,10 NEXT JUMP voice1
+
+voice2:
+0,10 ENV env_0xc94c VIB vib_0xc94e JUMP mel_0xc8f1
+
+voice3:
+ENV env_0xc942 VIB vib_0xc94e JUMP mel_0xc8f1
+
+env_0xc8c8:
+14,1 63 62 61 10,40 9,7 8,7 7,7 6,7 5,7 4,7 3,0
+
+vib_0xc8dd:
+0 0 0 0 0 0 0 0
+
+vib_0xc8e5:
+1 1 -1 -1 -1 -1 1 1 0 JUMP vib_0xc8e5
+
+mel_0xc8f1:
+LOOP 2 TR -3 CALL mel_0xc922 TR -5 CALL mel_0xc932 TR -3 CALL mel_0xc922 TR 2 CALL mel_0xc932 NEXT LOOP 2 TR -2 CALL mel_0xc922 TR -6 CALL mel_0xc932 TR -2 CALL mel_0xc932 TR 2 CALL mel_0xc922 NEXT JUMP mel_0xc8f1
+
+mel_0xc922:
+LOOP 2 40,10 43,10 47,10 52,10 47,10 43,10 NEXT RET
+
+mel_0xc932:
+LOOP 2 40,10 44,10 47,10 52,10 47,10 44,10 NEXT RET
+
+env_0xc942:
+12,2 11,2 10,2 9,2 8,0
+
+env_0xc94c:
+7,0
+
+vib_0xc94e:
+-2 -2 2 2 1 1 -1 -1 JUMP vib_0xc94e

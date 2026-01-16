@@ -110,7 +110,7 @@ Sets the envelope data for the current voice (explained below).
 
 Sets the vibrato data for the current voice (explained below).
 
-> Again: Both ENV and VIB must be explicitly specified for the current voice before playing the first note. There are no "default" ENV and VIB values!
+> Again: Both ENV and VIB must be explicitly specified for the current voice before playing the first note. There are no "default" ENV and VIB values! (Exception: Silent note can be played without setting ENV and VIB.)
 
 > ENV and VIB definitions are completely independent of each other and can be shared between multiple voices without problems.
 
